@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>كلاشي | متاجر متعددة - التحديث الخامس PWA</title>
+    <title>كلاشي | متاجر متعددة - التحديث الرابع</title>
     <meta name="description" content="كلاشي - مجموعة متنوعة من المتاجر المختلفة في مكان واحد">
     <meta name="keywords" content="كلاشي، متاجر، تسوق، أونلاين، العراق">
     <meta name="author" content="كلاشي">
@@ -13,21 +13,14 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="كلاشي">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
-    <!-- PWA Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
-    <link rel="apple-touch-icon" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta name="apple-mobile-web-app-title" content="المول الإلكتروني">
     
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Supabase Client -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.3/umd/supabase.min.js"></script>
+    <!-- Supabase Client - Updated CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
         :root {
@@ -43,7 +36,7 @@
             --error: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
             --error-solid: #EF4444;
             
-            /* Store Colors */
+            /* Store Colors - Extended */
             --pink: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
             --pink-solid: #EC4899;
             --indigo: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
@@ -147,13 +140,8 @@
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background: 
-                linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 25%, rgba(51, 65, 85, 0.85) 50%, rgba(71, 85, 105, 0.8) 75%, rgba(100, 116, 139, 0.75) 100%),
-                url('https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png');
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #334155 50%, #475569 75%, #64748B 100%);
             background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             color: var(--gray-100);
             overflow-x: hidden;
             line-height: 1.4;
@@ -164,7 +152,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Enhanced Background Effect with Logo */
+        /* Enhanced Background Effect */
         body::before {
             content: '';
             position: fixed;
@@ -364,91 +352,6 @@
             box-shadow: 0 20px 30px -10px rgba(249, 115, 22, 0.4);
         }
 
-        .action-btn.install {
-            background: var(--success);
-        }
-
-        .action-btn.install:hover {
-            background: var(--success);
-            box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.4);
-        }
-
-        /* PWA Install Banner */
-        .install-banner {
-            position: fixed;
-            bottom: 80px;
-            left: var(--space-3);
-            right: var(--space-3);
-            background: var(--success);
-            color: white;
-            padding: var(--space-4);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-2xl);
-            z-index: 999;
-            display: none;
-            align-items: center;
-            gap: var(--space-3);
-            font-size: var(--font-sm);
-            transform: translateY(100px);
-            transition: all var(--transition-smooth);
-        }
-
-        .install-banner.show {
-            display: flex;
-            transform: translateY(0);
-            animation: slideUpBounce 0.6s ease-out;
-        }
-
-        @keyframes slideUpBounce {
-            0% { transform: translateY(100px); opacity: 0; }
-            60% { transform: translateY(-10px); opacity: 1; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        .install-banner-content {
-            flex: 1;
-        }
-
-        .install-banner-title {
-            font-weight: 700;
-            margin-bottom: var(--space-1);
-        }
-
-        .install-banner-text {
-            font-size: var(--font-xs);
-            opacity: 0.9;
-        }
-
-        .install-banner-actions {
-            display: flex;
-            gap: var(--space-2);
-        }
-
-        .install-btn, .dismiss-btn {
-            padding: var(--space-2) var(--space-3);
-            border: none;
-            border-radius: var(--radius-lg);
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 600;
-            font-size: var(--font-xs);
-            cursor: pointer;
-            transition: all var(--transition-base);
-        }
-
-        .install-btn {
-            background: white;
-            color: var(--success-solid);
-        }
-
-        .dismiss-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .install-btn:hover, .dismiss-btn:hover {
-            transform: scale(1.05);
-        }
-
         /* Database Status */
         .db-status {
             position: fixed;
@@ -528,7 +431,6 @@
             margin-bottom: var(--space-3);
             position: relative;
             display: inline-block;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .section-title::after {
@@ -551,10 +453,9 @@
 
         .section-subtitle {
             font-size: var(--font-lg);
-            color: var(--gray-100);
+            color: var(--gray-300);
             font-weight: 500;
             margin-bottom: var(--space-4);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .section-stats {
@@ -572,7 +473,6 @@
             border: 1px solid var(--glass-border);
             min-width: 80px;
             transition: all var(--transition-base);
-            backdrop-filter: blur(15px);
         }
 
         .stat-item:hover {
@@ -591,7 +491,7 @@
 
         .stat-label {
             font-size: var(--font-xs);
-            color: var(--gray-300);
+            color: var(--gray-400);
             font-weight: 600;
         }
 
@@ -741,7 +641,6 @@
             margin-bottom: var(--space-3);
             line-height: 1.2;
             transition: all var(--transition-base);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .store-card:hover .store-name {
@@ -751,7 +650,7 @@
 
         .store-description {
             font-size: var(--font-sm);
-            color: var(--gray-200);
+            color: var(--gray-300);
             margin-bottom: var(--space-4);
             line-height: 1.5;
             display: -webkit-box;
@@ -761,11 +660,10 @@
             overflow: hidden;
             flex-grow: 1;
             transition: all var(--transition-base);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         .store-card:hover .store-description {
-            color: var(--gray-100);
+            color: var(--gray-200);
         }
 
         .store-action {
@@ -831,7 +729,7 @@
             height: 0;
         }
 
-        /* Store Colors */
+        /* Store Colors - Extended */
         .store-card.clothing .store-header { background: var(--pink); }
         .store-card.clothing:hover { border-color: var(--pink-solid); box-shadow: var(--shadow-2xl), 0 0 30px rgba(236, 72, 153, 0.3); }
 
@@ -850,6 +748,7 @@
         .store-card.textiles .store-header { background: var(--teal); }
         .store-card.textiles:hover { border-color: var(--teal-solid); box-shadow: var(--shadow-2xl), 0 0 30px rgba(13, 148, 136, 0.3); }
 
+        /* New Color Classes */
         .store-card.red .store-header { background: var(--red); }
         .store-card.red:hover { border-color: var(--red-solid); box-shadow: var(--shadow-2xl), 0 0 30px rgba(220, 38, 38, 0.3); }
 
@@ -969,7 +868,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(10px);
             z-index: 2000;
             display: none;
@@ -1328,11 +1227,6 @@
             .db-status {
                 display: none;
             }
-
-            .install-banner {
-                left: var(--space-2);
-                right: var(--space-2);
-            }
         }
 
         @media (max-width: 480px) {
@@ -1439,16 +1333,6 @@
             to { opacity: 1; }
         }
 
-        @keyframes modalFadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
-        @keyframes slideOut {
-            from { transform: translateX(0); }
-            to { transform: translateX(400px); }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1523,18 +1407,6 @@
         <div class="loading-text">جاري التحميل...</div>
     </div>
 
-    <!-- PWA Install Banner -->
-    <div class="install-banner" id="installBanner">
-        <div class="install-banner-content">
-            <div class="install-banner-title">📱 تثبيت كلاشي</div>
-            <div class="install-banner-text">ثبت التطبيق على هاتفك للوصول السريع</div>
-        </div>
-        <div class="install-banner-actions">
-            <button class="install-btn" id="installBtn">تثبيت</button>
-            <button class="dismiss-btn" id="dismissBtn">لاحقاً</button>
-        </div>
-    </div>
-
     <!-- Database Status -->
     <div class="db-status" id="dbStatus">
         <div class="db-status-indicator"></div>
@@ -1552,7 +1424,7 @@
                     <h1 style="font-size:1.1rem; font-weight:900; background: linear-gradient(90deg,#F59E0B,#8B5CF6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">
                         كلاشي
                     </h1>
-                    <p style="font-size:0.8rem; color:#aaa; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">PWA التحديث الخامس</p>
+                    <p style="font-size:0.8rem; color:#aaa; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">التحديث الرابع + DB</p>
                 </div>
             </div>
             
@@ -1562,9 +1434,6 @@
                 </div>
                 <div class="action-btn" onclick="syncData()" title="مزامنة البيانات" id="syncBtn">
                     <i class="fas fa-sync-alt"></i>
-                </div>
-                <div class="action-btn install hide" onclick="installPWA()" title="تثبيت التطبيق" id="installActionBtn">
-                    <i class="fas fa-download"></i>
                 </div>
                 <div class="action-btn admin" onclick="toggleAdmin()" title="إدارة المتاجر">
                     <i class="fas fa-cog"></i>
@@ -1582,16 +1451,12 @@
         <section class="stores-section" id="stores">
             <div class="section-header">
                 <h2 class="section-title">🏪 متاجرنا المتطورة</h2>
-                <p class="section-subtitle">PWA - التحديث الخامس مع قاعدة البيانات السحابية</p>
+                <p class="section-subtitle">التحديث الرابع مع قاعدة البيانات السحابية</p>
                 
                 <div class="section-stats">
                     <div class="stat-item">
                         <div class="stat-number" id="storeCount">0</div>
                         <div class="stat-label">متاجر</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">📱</div>
-                        <div class="stat-label">PWA</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">🔗</div>
@@ -1602,7 +1467,7 @@
                         <div class="stat-label">خدمة</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">⭐ 5.0</div>
+                        <div class="stat-number">⭐ 4.9</div>
                         <div class="stat-label">تقييم</div>
                     </div>
                 </div>
@@ -1820,7 +1685,7 @@
                     </p>
                     <p style="color: var(--gray-300); margin-bottom: var(--space-3); font-size: var(--font-lg);">📧 info@emall-iq.com</p>
                     <p style="color: var(--gray-300); font-size: var(--font-lg);">🕒 متاح 24/7</p>
-                    <p style="color: var(--success-solid); font-size: var(--font-sm); margin-top: var(--space-3);">📱 PWA جاهز للتثبيت</p>
+                    <p style="color: var(--success-solid); font-size: var(--font-sm); margin-top: var(--space-3);">🔗 متصل بـ Supabase</p>
                 </div>
                 
                 <button class="btn btn-success w-full" onclick="openWhatsApp()">
@@ -1846,28 +1711,20 @@
             
             <div style="padding: var(--space-4); text-align: center;">
                 <p style="color: var(--gray-300); line-height: 1.6; margin-bottom: var(--space-5); font-size: var(--font-lg);">
-                    كلاشي هو تطبيق PWA متطور يجمع أفضل المتاجر المحلية في شبكة تفاعلية. 
-                    قابل للتثبيت على الهاتف والحاسوب مع دعم العمل بدون اتصال.
+                    كلاشي هو منصة تجمع أفضل المتاجر المحلية في شبكة تفاعلية متطورة مع قاعدة بيانات سحابية. 
+                    نهدف إلى تقديم تجربة تسوق استثنائية مع تقنيات حديثة.
                 </p>
                 
                 <div style="background: var(--glass); border-radius: var(--radius-xl); padding: var(--space-5); margin-bottom: var(--space-5); border: 1px solid var(--glass-border);">
-                    <h4 style="color: var(--primary-solid); margin-bottom: var(--space-4); font-size: var(--font-xl);">مميزات التحديث الخامس PWA</h4>
+                    <h4 style="color: var(--primary-solid); margin-bottom: var(--space-4); font-size: var(--font-xl);">مميزات التحديث الرابع</h4>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); text-align: center;">
                         <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">📱</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">PWA</div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🔗</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">Supabase</div>
                         </div>
                         <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">📲</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">قابل للتثبيت</div>
-                        </div>
-                        <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🔄</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">تزامن تلقائي</div>
-                        </div>
-                        <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">📶</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">عمل بدون نت</div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">☁️</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">قاعدة بيانات سحابية</div>
                         </div>
                         <div>
                             <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🎨</div>
@@ -1881,7 +1738,7 @@
                 </div>
                 
                 <p style="color: var(--gray-400); font-size: var(--font-sm);">
-                    &copy; 2025 كلاشي - PWA التحديث الخامس. جميع الحقوق محفوظة.
+                    &copy; 2025 كلاشي - التحديث الرابع مع Supabase. جميع الحقوق محفوظة.
                 </p>
             </div>
         </div>
@@ -1893,6 +1750,829 @@
         <span id="notificationText">إشعار</span>
     </div>
 
-    <script src="app.js"></script>
+    <script>
+        // إعدادات Supabase
+        const SUPABASE_URL = 'https://wgvkbrmcgejscgsyapcs.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indndmticm1jZ2Vqc2Nnc3lhcGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MzgwOTUsImV4cCI6MjA2NTExNDA5NX0.FfODkBYSgTBBkoNP40YixlQphKyrzYbuwqSip7-smuU';
+        
+        let supabase;
+        let stores = {};
+        let isAdmin = localStorage.getItem('emall_admin') === 'true';
+        let isConnected = false;
+
+        // Initialize Supabase with better error handling
+        function initSupabase() {
+            try {
+                // Check if Supabase is loaded
+                if (typeof window.supabase === 'undefined') {
+                    console.error('❌ Supabase library not loaded');
+                    updateDBStatus('error', 'مكتبة Supabase غير محملة');
+                    return false;
+                }
+
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                
+                // Test connection
+                testSupabaseConnection();
+                
+                console.log('✅ Supabase client initialized');
+                updateDBStatus('connected', 'جاري اختبار الاتصال...');
+                isConnected = true;
+                return true;
+            } catch (error) {
+                console.error('❌ Supabase initialization error:', error);
+                updateDBStatus('error', 'خطأ في إعداد الاتصال');
+                isConnected = false;
+                return false;
+            }
+        }
+
+        // Test Supabase connection
+        async function testSupabaseConnection() {
+            try {
+                const { data, error } = await supabase
+                    .from('stores')
+                    .select('count', { count: 'exact', head: true });
+
+                if (error) {
+                    console.warn('⚠️ Connection test failed:', error);
+                    updateDBStatus('error', 'فشل اختبار الاتصال');
+                    isConnected = false;
+                } else {
+                    console.log('✅ Connection test successful');
+                    updateDBStatus('connected', 'متصل بنجاح');
+                    isConnected = true;
+                }
+            } catch (error) {
+                console.error('❌ Connection test error:', error);
+                updateDBStatus('error', 'خطأ في اختبار الاتصال');
+                isConnected = false;
+            }
+        }
+
+        // Update database status indicator
+        function updateDBStatus(status, message) {
+            const dbStatus = document.getElementById('dbStatus');
+            const dbStatusText = document.getElementById('dbStatusText');
+            
+            dbStatus.className = `db-status ${status}`;
+            dbStatusText.textContent = message;
+        }
+
+        // Load stores from Supabase
+        async function loadStoresFromDB() {
+            if (!isConnected) {
+                console.log('📡 لا يوجد اتصال بقاعدة البيانات، تحميل البيانات الافتراضية...');
+                loadDefaultStores();
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase
+                    .from('stores')
+                    .select('*')
+                    .order('created_at', { ascending: true });
+
+                if (error) {
+                    console.error('❌ خطأ في تحميل المتاجر:', error);
+                    loadDefaultStores();
+                    updateDBStatus('error', 'خطأ في تحميل البيانات');
+                    return;
+                }
+
+                console.log('📦 تم تحميل المتاجر من قاعدة البيانات:', data);
+                
+                // Clear existing stores
+                stores = {};
+                const storesGrid = document.getElementById('storesGrid');
+                const addBtn = document.getElementById('addStoreBtn');
+                storesGrid.innerHTML = '';
+                storesGrid.appendChild(addBtn);
+
+                // Add stores from database
+                if (data && data.length > 0) {
+                    data.forEach(store => {
+                        stores[store.id] = {
+                            id: store.id,
+                            name: store.name,
+                            description: store.description,
+                            url: store.url,
+                            icon: store.icon,
+                            color: store.color,
+                            available: store.available || true,
+                            fromDB: true
+                        };
+                        addStoreToGrid(store.id, stores[store.id]);
+                    });
+                    updateStoreCount();
+                    showNotification(`📦 تم تحميل ${data.length} متجر من قاعدة البيانات`);
+                } else {
+                    loadDefaultStores();
+                }
+                
+                updateDBStatus('connected', `متصل - ${Object.keys(stores).length} متجر`);
+            } catch (error) {
+                console.error('❌ خطأ في الاتصال بقاعدة البيانات:', error);
+                loadDefaultStores();
+                updateDBStatus('error', 'خطأ في الاتصال');
+            }
+        }
+
+        // Load default stores (fallback)
+        function loadDefaultStores() {
+            stores = {
+                'alhajami': {
+                    id: 'alhajami',
+                    name: 'محلات الحجامي',
+                    description: 'أجود أنواع الشالات والطرحات والسجادات التركية الأصلية بأفضل الأسعار',
+                    url: './alhajami.html',
+                    icon: 'fas fa-user-tie',
+                    color: 'textiles',
+                    available: true,
+                    fromDB: false
+                }
+            };
+
+            const storesGrid = document.getElementById('storesGrid');
+            const addBtn = document.getElementById('addStoreBtn');
+            storesGrid.innerHTML = '';
+            storesGrid.appendChild(addBtn);
+            
+            Object.entries(stores).forEach(([storeId, store]) => {
+                addStoreToGrid(storeId, store);
+            });
+            
+            updateStoreCount();
+            showNotification('📦 تم تحميل البيانات الافتراضية', 'warning');
+        }
+
+        // Save store to Supabase
+        async function saveStoreToSupabase(storeData) {
+            if (!isConnected) {
+                showNotification('❌ لا يوجد اتصال بقاعدة البيانات', 'error');
+                return null;
+            }
+
+            try {
+                const { data, error } = await supabase
+                    .from('stores')
+                    .insert([{
+                        name: storeData.name,
+                        description: storeData.description,
+                        url: storeData.url,
+                        icon: storeData.icon,
+                        color: storeData.color,
+                        available: storeData.available || true
+                    }])
+                    .select()
+                    .single();
+
+                if (error) {
+                    console.error('❌ خطأ في حفظ المتجر:', error);
+                    showNotification('❌ خطأ في حفظ المتجر', 'error');
+                    return null;
+                }
+
+                console.log('✅ تم حفظ المتجر في قاعدة البيانات:', data);
+                return data;
+            } catch (error) {
+                console.error('❌ خطأ في الاتصال:', error);
+                showNotification('❌ خطأ في الاتصال بقاعدة البيانات', 'error');
+                return null;
+            }
+        }
+
+        // Sync data manually
+        async function syncData() {
+            const syncBtn = document.getElementById('syncBtn');
+            const syncIcon = syncBtn.querySelector('i');
+            
+            syncIcon.classList.add('syncing');
+            showNotification('🔄 جاري مزامنة البيانات...');
+            
+            await loadStoresFromDB();
+            
+            setTimeout(() => {
+                syncIcon.classList.remove('syncing');
+                showNotification('✅ تم تحديث البيانات بنجاح');
+            }, 1000);
+        }
+
+        // Initialize app with enhanced loading and better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            showLoadingOverlay();
+            
+            // Wait a bit for external scripts to load
+            setTimeout(async () => {
+                // Check if Supabase library is available
+                let supabaseReady = false;
+                let attempts = 0;
+                const maxAttempts = 3;
+
+                while (!supabaseReady && attempts < maxAttempts) {
+                    attempts++;
+                    console.log(`🔄 محاولة تهيئة Supabase (${attempts}/${maxAttempts})...`);
+                    
+                    if (typeof window.supabase !== 'undefined') {
+                        supabaseReady = initSupabase();
+                        if (supabaseReady) break;
+                    } else {
+                        console.warn(`⚠️ Supabase library not found (attempt ${attempts})`);
+                        updateDBStatus('error', `محاولة ${attempts}: المكتبة غير محملة`);
+                    }
+                    
+                    // Wait before retry
+                    if (attempts < maxAttempts) {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+                }
+
+                if (!supabaseReady) {
+                    console.warn('⚠️ تم التحول إلى الوضع المحلي');
+                    updateDBStatus('error', 'وضع محلي - لا يوجد اتصال');
+                }
+                
+                // Load stores
+                await loadStoresFromDB();
+                
+                // Initialize other features
+                initializeApp();
+                
+                if (isAdmin) {
+                    showAdminElements();
+                }
+                
+                hideLoadingOverlay();
+                
+                // Enhanced welcome message
+                setTimeout(() => {
+                    if (isConnected) {
+                        showNotification('🎉 التحديث الرابع: متصل بقاعدة البيانات!');
+                    } else {
+                        showNotification('⚠️ وضع محلي - تحقق من الاتصال بالإنترنت', 'warning');
+                    }
+                }, 500);
+            }, 2000);
+        });
+
+        function showLoadingOverlay() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+
+        function hideLoadingOverlay() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+
+        function initializeApp() {
+            // Initialize enhanced animations
+            initScrollAnimations();
+            initHeaderScrollEffect();
+        }
+
+        // Enhanced header scroll effect
+        function initHeaderScrollEffect() {
+            let lastScroll = 0;
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+        }
+
+        // Enhanced store opening with loading
+        function openStore(storeId) {
+            const store = stores[storeId];
+            
+            if (!store) {
+                showNotification('المتجر غير موجود', 'error');
+                return;
+            }
+            
+            if (!store.available) {
+                showNotification(`${store.name} قريباً... 🔜`, 'warning');
+                // Add special animation for coming soon stores
+                const storeCard = document.querySelector(`.store-card[onclick*="${storeId}"]`);
+                if (storeCard) {
+                    storeCard.classList.add('success-animation');
+                    setTimeout(() => {
+                        storeCard.classList.remove('success-animation');
+                    }, 600);
+                }
+                return;
+            }
+            
+            // Enhanced loading animation
+            const storeCard = document.querySelector(`.store-card[onclick*="${storeId}"]`);
+            if (storeCard) {
+                storeCard.style.transform = 'translateY(-10px) scale(0.95) rotateX(10deg)';
+                storeCard.style.filter = 'brightness(1.2)';
+                setTimeout(() => {
+                    storeCard.style.transform = '';
+                    storeCard.style.filter = '';
+                }, 400);
+            }
+            
+            // Show enhanced loading
+            showLoadingOverlay();
+            document.querySelector('.loading-text').textContent = `جاري فتح ${store.name}...`;
+            
+            setTimeout(() => {
+                hideLoadingOverlay();
+                showNotification(`🛍️ مرحباً بك في ${store.name}!`);
+                setTimeout(() => {
+                    window.location.href = store.url;
+                }, 500);
+            }, 1500);
+        }
+
+        // Enhanced admin functions
+        function toggleAdmin() {
+            const password = prompt('🔐 أدخل كلمة مرور الإدارة:');
+            if (password === 'admin123') {
+                isAdmin = !isAdmin;
+                localStorage.setItem('emall_admin', isAdmin.toString());
+                if (isAdmin) {
+                    showAdminElements();
+                    showNotification('🔓 تم تفعيل وضع الإدارة المتقدم');
+                    // Add special effect for admin mode
+                    document.body.style.filter = 'hue-rotate(30deg)';
+                    setTimeout(() => {
+                        document.body.style.filter = '';
+                    }, 1000);
+                } else {
+                    hideAdminElements();
+                    showNotification('🔒 تم إلغاء وضع الإدارة');
+                }
+            } else if (password !== null) {
+                showNotification('❌ كلمة مرور خاطئة', 'error');
+            }
+        }
+
+        function showAdminElements() {
+            const addBtn = document.getElementById('addStoreBtn');
+            addBtn.classList.remove('hide');
+            // Add entrance animation
+            setTimeout(() => {
+                addBtn.style.animation = 'fadeInUp 0.5s ease-out';
+            }, 100);
+        }
+
+        function hideAdminElements() {
+            document.getElementById('addStoreBtn').classList.add('hide');
+        }
+
+        function openAddStoreModal() {
+            document.getElementById('addStoreModal').classList.add('active');
+        }
+
+        async function handleAddStore(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('storeName').value.trim();
+            const description = document.getElementById('storeDescription').value.trim();
+            const url = document.getElementById('storeUrl').value.trim();
+            const icon = document.getElementById('storeIcon').value;
+            const color = document.getElementById('storeColor').value;
+            
+            if (!name || !description || !url || !icon || !color) {
+                showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+            
+            // Show loading
+            showLoadingOverlay();
+            document.querySelector('.loading-text').textContent = 'جاري إضافة المتجر إلى قاعدة البيانات...';
+            
+            const storeData = {
+                name,
+                description,
+                url,
+                icon,
+                color,
+                available: true
+            };
+
+            try {
+                // Save to Supabase
+                const savedStore = await saveStoreToSupabase(storeData);
+                
+                if (savedStore) {
+                    // Add to local stores
+                    stores[savedStore.id] = {
+                        ...storeData,
+                        id: savedStore.id,
+                        fromDB: true
+                    };
+                    
+                    // Add to grid with animation
+                    addStoreToGrid(savedStore.id, stores[savedStore.id]);
+                    updateStoreCount();
+                    updateDBStatus('connected', `متصل - ${Object.keys(stores).length} متجر`);
+                    
+                    showNotification('✅ تم حفظ المتجر في قاعدة البيانات بنجاح!');
+                } else {
+                    // Fallback to local storage
+                    const storeId = 'store_' + Date.now();
+                    stores[storeId] = {
+                        ...storeData,
+                        id: storeId,
+                        fromDB: false
+                    };
+                    
+                    addStoreToGrid(storeId, stores[storeId]);
+                    updateStoreCount();
+                    
+                    showNotification('⚠️ تم حفظ المتجر محلياً (لا يوجد اتصال)', 'warning');
+                }
+                
+                // Close modal and reset form
+                closeModal('addStoreModal');
+                document.getElementById('addStoreForm').reset();
+                
+            } catch (error) {
+                console.error('❌ خطأ في إضافة المتجر:', error);
+                showNotification('❌ خطأ في إضافة المتجر', 'error');
+            }
+            
+            hideLoadingOverlay();
+        }
+
+        function addStoreToGrid(storeId, store) {
+            const grid = document.getElementById('storesGrid');
+            const addBtn = document.getElementById('addStoreBtn');
+            
+            const storeCard = document.createElement('div');
+            storeCard.className = `store-card ${store.color} fade-in-up`;
+            storeCard.onclick = () => openStore(storeId);
+            
+            storeCard.innerHTML = `
+                <div class="store-header">
+                    <i class="${store.icon} store-icon"></i>
+                </div>
+                <div class="store-content">
+                    <h3 class="store-name">${store.name}</h3>
+                    <p class="store-description">${store.description}</p>
+                    <div class="store-action">
+                        <button class="store-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            تسوق الآن
+                        </button>
+                    </div>
+                </div>
+                ${store.fromDB ? `<div class="coming-soon-badge" style="background: var(--success-solid);">🔗 DB</div>` : ''}
+            `;
+            
+            grid.insertBefore(storeCard, addBtn);
+            
+            // Add entrance animation
+            setTimeout(() => {
+                storeCard.style.animation = 'fadeInUp 0.8s ease-out';
+            }, 100);
+        }
+
+        function updateStoreCount() {
+            const storeCount = document.getElementById('storeCount');
+            storeCount.textContent = Object.keys(stores).length;
+        }
+
+        // Enhanced navigation functions
+        function scrollToStores() {
+            document.getElementById('stores').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+            updateActiveNavItem(1);
+            showNotification('📍 تم الانتقال إلى قسم المتاجر');
+        }
+
+        function goToHome() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateActiveNavItem(0);
+            showNotification('🏠 العودة إلى الصفحة الرئيسية');
+        }
+
+        function showContact() {
+            document.getElementById('contactModal').classList.add('active');
+            updateActiveNavItem(2);
+        }
+
+        function showAbout() {
+            document.getElementById('aboutModal').classList.add('active');
+            updateActiveNavItem(3);
+        }
+
+        function updateActiveNavItem(index) {
+            document.querySelectorAll('.nav-item').forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function openWhatsApp() {
+            const message = encodeURIComponent('السلام عليكم، أريد الاستفسار عن خدمات كلاشي - التحديث الرابع مع قاعدة البيانات 🚀🔗');
+            window.open(`https://wa.me/9647813798636?text=${message}`, '_blank');
+            showNotification('📱 تم فتح واتساب...');
+        }
+
+        // Enhanced modal functions
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.animation = 'modalFadeOut 0.3s ease-out';
+            setTimeout(() => {
+                modal.classList.remove('active');
+                modal.style.animation = '';
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                const modalId = e.target.id;
+                closeModal(modalId);
+            }
+        });
+
+        // Enhanced notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.className = `notification ${type}`;
+            
+            const icon = notification.querySelector('i');
+            if (type === 'error') {
+                icon.className = 'fas fa-exclamation-circle';
+            } else if (type === 'warning') {
+                icon.className = 'fas fa-exclamation-triangle';
+            } else {
+                icon.className = 'fas fa-check-circle';
+            }
+            
+            notification.classList.add('show');
+            
+            // Auto hide with enhanced timing
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.style.animation = '';
+                }, 300);
+            }, 4000);
+        }
+
+        // Enhanced scroll animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Add stagger effect for store cards
+                        if (entry.target.classList.contains('store-card')) {
+                            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100;
+                            setTimeout(() => {
+                                entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                            }, delay);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+            
+            // Add keyboard shortcuts
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'h':
+                        e.preventDefault();
+                        goToHome();
+                        break;
+                    case 's':
+                        e.preventDefault();
+                        scrollToStores();
+                        break;
+                    case 'c':
+                        e.preventDefault();
+                        showContact();
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        syncData();
+                        break;
+                }
+            }
+        });
+
+        // Enhanced mobile touch handling
+        let touchStartY = 0;
+        let touchStartX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+            
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaY = touchStartY - touchEndY;
+            const deltaX = touchStartX - touchEndX;
+            
+            // Add swipe gestures
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    // Swipe left - next section
+                    scrollToStores();
+                } else {
+                    // Swipe right - previous section
+                    goToHome();
+                }
+            }
+        }, false);
+
+        // Real-time updates from Supabase
+        function setupRealtimeUpdates() {
+            if (!isConnected || !supabase) {
+                console.log('📡 التحديثات الفورية غير متاحة - لا يوجد اتصال');
+                return;
+            }
+
+            try {
+                const subscription = supabase
+                    .channel('stores-changes')
+                    .on('postgres_changes', 
+                        { 
+                            event: '*', 
+                            schema: 'public', 
+                            table: 'stores' 
+                        }, 
+                        (payload) => {
+                            console.log('🔄 تحديث في قاعدة البيانات:', payload);
+                            
+                            switch (payload.eventType) {
+                                case 'INSERT':
+                                    handleNewStore(payload.new);
+                                    break;
+                                case 'UPDATE':
+                                    handleUpdateStore(payload.new);
+                                    break;
+                                case 'DELETE':
+                                    handleDeleteStore(payload.old);
+                                    break;
+                            }
+                        }
+                    )
+                    .subscribe();
+
+                console.log('🔔 تم تفعيل التحديثات الفورية');
+                showNotification('🔔 التحديثات الفورية مفعلة');
+            } catch (error) {
+                console.error('❌ خطأ في تفعيل التحديثات الفورية:', error);
+                showNotification('⚠️ التحديثات الفورية غير متاحة', 'warning');
+            }
+        }
+
+        function handleNewStore(newStore) {
+            if (!stores[newStore.id]) {
+                stores[newStore.id] = {
+                    id: newStore.id,
+                    name: newStore.name,
+                    description: newStore.description,
+                    url: newStore.url,
+                    icon: newStore.icon,
+                    color: newStore.color,
+                    available: newStore.available,
+                    fromDB: true
+                };
+                
+                addStoreToGrid(newStore.id, stores[newStore.id]);
+                updateStoreCount();
+                showNotification(`🆕 تم إضافة متجر جديد: ${newStore.name}`);
+            }
+        }
+
+        function handleUpdateStore(updatedStore) {
+            if (stores[updatedStore.id]) {
+                stores[updatedStore.id] = {
+                    ...stores[updatedStore.id],
+                    ...updatedStore,
+                    fromDB: true
+                };
+                
+                // Re-render the store card
+                const existingCard = document.querySelector(`[onclick*="${updatedStore.id}"]`);
+                if (existingCard) {
+                    existingCard.remove();
+                }
+                addStoreToGrid(updatedStore.id, stores[updatedStore.id]);
+                showNotification(`🔄 تم تحديث متجر: ${updatedStore.name}`);
+            }
+        }
+
+        function handleDeleteStore(deletedStore) {
+            if (stores[deletedStore.id]) {
+                delete stores[deletedStore.id];
+                
+                const existingCard = document.querySelector(`[onclick*="${deletedStore.id}"]`);
+                if (existingCard) {
+                    existingCard.remove();
+                }
+                
+                updateStoreCount();
+                showNotification(`🗑️ تم حذف متجر: ${deletedStore.name}`, 'warning');
+            }
+        }
+
+        // Performance optimization
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Add CSS animation for fadeOut
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes modalFadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); }
+                to { transform: translateX(400px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced console logs
+        console.log('🚀 كلاشي - التحديث الرابع مع Supabase جاهز!');
+        console.log('🔗 قاعدة البيانات: Supabase (سيتم اختبار الاتصال...)');
+        console.log('📱 متجرين في صف على جميع الأجهزة');
+        console.log('✨ تفاعلات ثلاثية الأبعاد محسنة');
+        console.log('🎨 50+ أيقونة و 16 لون للمتاجر');
+        console.log('☁️ حفظ سحابي مع تحديثات فورية');
+        console.log('⚡ أداء محسن مع debouncing');
+        console.log('🔧 نظام إدارة متطور');
+        console.log('⌨️ اختصارات جديدة: Ctrl+R (مزامنة)');
+        console.log('🔔 التحديثات الفورية من قاعدة البيانات');
+        console.log('🛠️ إصلاح: تحسين تحميل مكتبة Supabase');
+        
+        // Setup realtime updates after initialization
+        setTimeout(() => {
+            if (isConnected && typeof window.supabase !== 'undefined') {
+                setupRealtimeUpdates();
+            } else {
+                console.log('📡 التحديثات الفورية غير متاحة في هذه الجلسة');
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
