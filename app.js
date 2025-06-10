@@ -975,6 +975,13 @@ function handleDeleteStore(deletedStore) {
     }
 }
 
+// عند الحاجة لمسارات صور ثابتة في التطبيق (مثلاً عند إنشاء عناصر أو تمرير src لأي صورة)، استخدم الرابط التالي فقط:
+const CLASHY_IMAGE_URL = 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png';
+
+// مثال: إذا أضفت صور ديناميكية أو ثابتة في أي مكان في الكود، استخدم CLASHY_IMAGE_URL
+// مثال توضيحي (أضف هذا في أي مكان تحتاج فيه صورة):
+// <img src="${CLASHY_IMAGE_URL}" alt="Clashy Logo" />
+
 // Performance optimization
 function debounce(func, wait) {
     let timeout;

@@ -8,9 +8,8 @@ const STATIC_FILES = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/js/app.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
+  '/app.js',
+  'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
   'https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/supabase/2.39.3/umd/supabase.min.js'
@@ -346,20 +345,20 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: event.data ? event.data.text() : 'تحديث جديد متاح في كلاشي',
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-72x72.png',
+    icon: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png',
+    badge: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png',
     tag: 'clashy-notification',
     requireInteraction: false,
     actions: [
       {
         action: 'open',
         title: 'فتح التطبيق',
-        icon: '/icons/icon-96x96.png'
+        icon: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png'
       },
       {
         action: 'close',
         title: 'إغلاق',
-        icon: '/icons/icon-96x96.png'
+        icon: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png'
       }
     ]
   };

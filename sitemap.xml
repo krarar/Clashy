@@ -80,14 +80,14 @@
 
   <!-- PWA Icons (main ones) -->
   <url>
-    <loc>https://krarar.github.io/Clashy/icons/icon-192x192.png</loc>
+    <loc>https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png</loc>
     <lastmod>2025-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
 
   <url>
-    <loc>https://krarar.github.io/Clashy/icons/icon-512x512.png</loc>
+    <loc>https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png</loc>
     <lastmod>2025-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
@@ -95,14 +95,14 @@
 
   <!-- Screenshots for PWA -->
   <url>
-    <loc>https://krarar.github.io/Clashy/screenshots/desktop-screenshot.png</loc>
+    <loc>https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png</loc>
     <lastmod>2025-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
 
   <url>
-    <loc>https://krarar.github.io/Clashy/screenshots/mobile-screenshot.png</loc>
+    <loc>https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png</loc>
     <lastmod>2025-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
