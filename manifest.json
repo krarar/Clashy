@@ -2,12 +2,12 @@
   "name": "كلاشي - متاجر متعددة",
   "short_name": "كلاشي",
   "description": "كلاشي - مجموعة متنوعة من المتاجر المختلفة في مكان واحد مع قاعدة بيانات سحابية",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#8B5CF6",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "./",
   "lang": "ar",
   "dir": "rtl",
   "categories": ["shopping", "business", "lifestyle"],
@@ -94,7 +94,7 @@
       "name": "المتاجر",
       "short_name": "متاجر",
       "description": "تصفح جميع المتاجر المتاحة",
-      "url": "/#stores",
+      "url": "./#stores",
       "icons": [
         {
           "src": "https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png",
@@ -106,7 +106,7 @@
       "name": "تواصل معنا",
       "short_name": "تواصل",
       "description": "تواصل مع فريق كلاشي",
-      "url": "/#contact",
+      "url": "./#contact",
       "icons": [
         {
           "src": "https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png",
