@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>كلاشي | متاجر متعددة - التحديث الرابع</title>
-    <meta name="description" content="كلاشي - مجموعة متنوعة من المتاجر المختلفة في مكان واحد">
-    <meta name="keywords" content="كلاشي، متاجر، تسوق، أونلاين، العراق">
+    <title>كلاشي | متاجر متعددة - التحديث الرابع PWA</title>
+    <meta name="description" content="كلاشي - مجموعة متنوعة من المتاجر المختلفة في مكان واحد مع قاعدة بيانات سحابية">
+    <meta name="keywords" content="كلاشي، متاجر، تسوق، أونلاين، العراق، PWA">
     <meta name="author" content="كلاشي">
     
     <!-- PWA Meta Tags -->
@@ -13,13 +13,53 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="المول الإلكتروني">
+    <meta name="apple-mobile-web-app-title" content="كلاشي">
+    <meta name="application-name" content="كلاشي">
+    <meta name="msapplication-TileColor" content="#8B5CF6">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons for different platforms -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta name="msapplication-wide310x150logo" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta name="msapplication-square310x310logo" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta name="msapplication-square150x150logo" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta name="msapplication-square70x70logo" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="كلاشي - متاجر متعددة">
+    <meta property="og:description" content="مجموعة متنوعة من المتاجر المختلفة في مكان واحد مع قاعدة بيانات سحابية">
+    <meta property="og:image" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
+    <meta property="og:url" content="https://yourusername.github.io/clashy-pwa">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="كلاشي">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="كلاشي - متاجر متعددة">
+    <meta name="twitter:description" content="مجموعة متنوعة من المتاجر المختلفة في مكان واحد">
+    <meta name="twitter:image" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/images//Clashy.png">
     
     <!-- External Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Supabase Client - Updated CDN -->
+    <!-- Supabase Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
@@ -350,6 +390,16 @@
         .action-btn.admin:hover {
             background: var(--orange);
             box-shadow: 0 20px 30px -10px rgba(249, 115, 22, 0.4);
+        }
+
+        /* PWA Install Button */
+        .action-btn.install {
+            background: var(--success);
+        }
+
+        .action-btn.install:hover {
+            background: var(--success);
+            box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.4);
         }
 
         /* Database Status */
@@ -1183,6 +1233,79 @@
             background: var(--accent);
         }
 
+        /* PWA Install Banner */
+        .install-banner {
+            position: fixed;
+            bottom: 80px;
+            left: var(--space-3);
+            right: var(--space-3);
+            background: var(--success);
+            color: white;
+            padding: var(--space-4);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+            z-index: 1001;
+            display: none;
+            align-items: center;
+            gap: var(--space-3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .install-banner.show {
+            display: flex;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .install-banner-content {
+            flex: 1;
+        }
+
+        .install-banner-title {
+            font-weight: 700;
+            margin-bottom: var(--space-1);
+        }
+
+        .install-banner-text {
+            font-size: var(--font-sm);
+            opacity: 0.9;
+        }
+
+        .install-banner-buttons {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .install-banner-btn {
+            padding: var(--space-2) var(--space-3);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+            font-size: var(--font-xs);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .install-banner-btn.primary {
+            background: white;
+            color: var(--success-solid);
+        }
+
+        .install-banner-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .install-banner-btn:hover {
+            transform: scale(1.05);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .main-content {
@@ -1226,6 +1349,12 @@
 
             .db-status {
                 display: none;
+            }
+
+            .install-banner {
+                left: var(--space-2);
+                right: var(--space-2);
+                bottom: 75px;
             }
         }
 
@@ -1313,6 +1442,16 @@
             .notification {
                 right: var(--space-2);
                 max-width: calc(100vw - var(--space-4));
+            }
+
+            .install-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .install-banner-buttons {
+                justify-content: center;
+                width: 100%;
             }
         }
 
@@ -1407,6 +1546,18 @@
         <div class="loading-text">جاري التحميل...</div>
     </div>
 
+    <!-- PWA Install Banner -->
+    <div class="install-banner" id="installBanner">
+        <div class="install-banner-content">
+            <div class="install-banner-title">📱 ثبت كلاشي على هاتفك</div>
+            <div class="install-banner-text">احصل على تجربة أفضل مع التطبيق</div>
+        </div>
+        <div class="install-banner-buttons">
+            <button class="install-banner-btn primary" onclick="installPWA()">تثبيت</button>
+            <button class="install-banner-btn secondary" onclick="dismissInstallBanner()">لاحقاً</button>
+        </div>
+    </div>
+
     <!-- Database Status -->
     <div class="db-status" id="dbStatus">
         <div class="db-status-indicator"></div>
@@ -1424,13 +1575,16 @@
                     <h1 style="font-size:1.1rem; font-weight:900; background: linear-gradient(90deg,#F59E0B,#8B5CF6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">
                         كلاشي
                     </h1>
-                    <p style="font-size:0.8rem; color:#aaa; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">التحديث الرابع + DB</p>
+                    <p style="font-size:0.8rem; color:#aaa; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;">PWA + DB</p>
                 </div>
             </div>
             
             <div class="header-actions">
                 <div class="action-btn" onclick="scrollToStores()" title="المتاجر">
                     <i class="fas fa-store"></i>
+                </div>
+                <div class="action-btn install hide" onclick="installPWA()" title="تثبيت التطبيق" id="installBtn">
+                    <i class="fas fa-download"></i>
                 </div>
                 <div class="action-btn" onclick="syncData()" title="مزامنة البيانات" id="syncBtn">
                     <i class="fas fa-sync-alt"></i>
@@ -1451,12 +1605,16 @@
         <section class="stores-section" id="stores">
             <div class="section-header">
                 <h2 class="section-title">🏪 متاجرنا المتطورة</h2>
-                <p class="section-subtitle">التحديث الرابع مع قاعدة البيانات السحابية</p>
+                <p class="section-subtitle">تطبيق PWA مع قاعدة البيانات السحابية</p>
                 
                 <div class="section-stats">
                     <div class="stat-item">
                         <div class="stat-number" id="storeCount">0</div>
                         <div class="stat-label">متاجر</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">📱</div>
+                        <div class="stat-label">PWA</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">🔗</div>
@@ -1685,7 +1843,7 @@
                     </p>
                     <p style="color: var(--gray-300); margin-bottom: var(--space-3); font-size: var(--font-lg);">📧 info@emall-iq.com</p>
                     <p style="color: var(--gray-300); font-size: var(--font-lg);">🕒 متاح 24/7</p>
-                    <p style="color: var(--success-solid); font-size: var(--font-sm); margin-top: var(--space-3);">🔗 متصل بـ Supabase</p>
+                    <p style="color: var(--success-solid); font-size: var(--font-sm); margin-top: var(--space-3);">📱 تطبيق PWA متاح</p>
                 </div>
                 
                 <button class="btn btn-success w-full" onclick="openWhatsApp()">
@@ -1702,7 +1860,7 @@
             <div class="modal-header">
                 <h3 class="modal-title">
                     <i class="fas fa-info-circle"></i>
-                    حول كلاشي
+                    حول كلاشي PWA
                 </h3>
                 <button class="close-btn" onclick="closeModal('aboutModal')">
                     <i class="fas fa-times"></i>
@@ -1711,34 +1869,42 @@
             
             <div style="padding: var(--space-4); text-align: center;">
                 <p style="color: var(--gray-300); line-height: 1.6; margin-bottom: var(--space-5); font-size: var(--font-lg);">
-                    كلاشي هو منصة تجمع أفضل المتاجر المحلية في شبكة تفاعلية متطورة مع قاعدة بيانات سحابية. 
-                    نهدف إلى تقديم تجربة تسوق استثنائية مع تقنيات حديثة.
+                    كلاشي PWA هو تطبيق ويب تدريجي يجمع أفضل المتاجر المحلية في شبكة تفاعلية متطورة مع قاعدة بيانات سحابية. 
+                    يمكن تثبيته على جميع الأجهزة ويعمل بسلاسة دون اتصال بالإنترنت.
                 </p>
                 
                 <div style="background: var(--glass); border-radius: var(--radius-xl); padding: var(--space-5); margin-bottom: var(--space-5); border: 1px solid var(--glass-border);">
-                    <h4 style="color: var(--primary-solid); margin-bottom: var(--space-4); font-size: var(--font-xl);">مميزات التحديث الرابع</h4>
+                    <h4 style="color: var(--primary-solid); margin-bottom: var(--space-4); font-size: var(--font-xl);">مميزات PWA الجديدة</h4>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); text-align: center;">
                         <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🔗</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">Supabase</div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">📱</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">قابل للتثبيت</div>
+                        </div>
+                        <div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">⚡</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">سريع</div>
+                        </div>
+                        <div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">📴</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">يعمل بدون إنترنت</div>
+                        </div>
+                        <div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🔔</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">إشعارات</div>
                         </div>
                         <div>
                             <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">☁️</div>
                             <div style="font-size: var(--font-sm); color: var(--gray-400);">قاعدة بيانات سحابية</div>
                         </div>
                         <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🎨</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">50+ أيقونة</div>
-                        </div>
-                        <div>
-                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🌈</div>
-                            <div style="font-size: var(--font-sm); color: var(--gray-400);">16 لون</div>
+                            <div style="font-size: var(--font-2xl); font-weight: 700; color: white;">🔄</div>
+                            <div style="font-size: var(--font-sm); color: var(--gray-400);">تحديثات تلقائية</div>
                         </div>
                     </div>
                 </div>
                 
                 <p style="color: var(--gray-400); font-size: var(--font-sm);">
-                    &copy; 2025 كلاشي - التحديث الرابع مع Supabase. جميع الحقوق محفوظة.
+                    &copy; 2025 كلاشي PWA - التطبيق التدريجي مع Supabase. جميع الحقوق محفوظة.
                 </p>
             </div>
         </div>
@@ -1759,6 +1925,8 @@
         let stores = {};
         let isAdmin = localStorage.getItem('emall_admin') === 'true';
         let isConnected = false;
+        let deferredPrompt;
+        let isInstalled = false;
 
         // Initialize Supabase with better error handling
         function initSupabase() {
@@ -1817,6 +1985,134 @@
             
             dbStatus.className = `db-status ${status}`;
             dbStatusText.textContent = message;
+        }
+
+        // PWA Installation handling
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('📱 PWA يمكن تثبيته');
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallButton();
+            showInstallBanner();
+        });
+
+        function showInstallButton() {
+            const installBtn = document.getElementById('installBtn');
+            installBtn.classList.remove('hide');
+        }
+
+        function showInstallBanner() {
+            // تأخير عرض البانر قليلاً
+            setTimeout(() => {
+                const installBanner = document.getElementById('installBanner');
+                const isDismissed = localStorage.getItem('installBannerDismissed');
+                
+                if (!isDismissed && !isInstalled) {
+                    installBanner.classList.add('show');
+                }
+            }, 3000);
+        }
+
+        function dismissInstallBanner() {
+            const installBanner = document.getElementById('installBanner');
+            installBanner.classList.remove('show');
+            localStorage.setItem('installBannerDismissed', 'true');
+        }
+
+        async function installPWA() {
+            if (!deferredPrompt) {
+                showNotification('⚠️ التثبيت غير متاح حالياً', 'warning');
+                return;
+            }
+
+            try {
+                const result = await deferredPrompt.prompt();
+                console.log('📱 نتيجة التثبيت:', result);
+                
+                if (result.outcome === 'accepted') {
+                    console.log('✅ تم قبول تثبيت PWA');
+                    showNotification('🎉 تم تثبيت التطبيق بنجاح!');
+                    isInstalled = true;
+                    hideInstallElements();
+                } else {
+                    console.log('❌ تم رفض تثبيت PWA');
+                    showNotification('⚠️ تم إلغاء التثبيت', 'warning');
+                }
+                
+                deferredPrompt = null;
+            } catch (error) {
+                console.error('❌ خطأ في تثبيت PWA:', error);
+                showNotification('❌ خطأ في التثبيت', 'error');
+            }
+        }
+
+        function hideInstallElements() {
+            const installBtn = document.getElementById('installBtn');
+            const installBanner = document.getElementById('installBanner');
+            
+            installBtn.classList.add('hide');
+            installBanner.classList.remove('show');
+        }
+
+        // تسجيل Service Worker
+        async function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.register('/service-worker.js');
+                    console.log('✅ Service Worker تم تسجيله:', registration.scope);
+                    
+                    // التحقق من وجود تحديثات
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('🔄 تحديث جديد متاح');
+                                showNotification('🔄 تحديث جديد متاح - يرجى إعادة تحميل الصفحة');
+                            }
+                        });
+                    });
+                    
+                    // التعامل مع رسائل Service Worker
+                    navigator.serviceWorker.addEventListener('message', (event) => {
+                        if (event.data && event.data.type === 'CACHE_UPDATED') {
+                            showNotification('📦 تم تحديث الملفات المحفوظة');
+                        }
+                    });
+                    
+                } catch (error) {
+                    console.error('❌ فشل تسجيل Service Worker:', error);
+                }
+            } else {
+                console.warn('⚠️ Service Worker غير مدعوم في هذا المتصفح');
+            }
+        }
+
+        // التحقق من حالة التثبيت
+        function checkInstallStatus() {
+            // التحقق من وضع التطبيق
+            if (window.matchMedia('(display-mode: standalone)').matches ||
+                window.navigator.standalone === true) {
+                console.log('📱 التطبيق يعمل في وضع standalone');
+                isInstalled = true;
+                hideInstallElements();
+            }
+        }
+
+        // طلب إذن الإشعارات
+        async function requestNotificationPermission() {
+            if ('Notification' in window && 'serviceWorker' in navigator) {
+                try {
+                    const permission = await Notification.requestPermission();
+                    if (permission === 'granted') {
+                        console.log('✅ تم السماح بالإشعارات');
+                        showNotification('🔔 تم تفعيل الإشعارات بنجاح');
+                    } else {
+                        console.log('❌ تم رفض الإشعارات');
+                    }
+                } catch (error) {
+                    console.error('❌ خطأ في طلب إذن الإشعارات:', error);
+                }
+            }
         }
 
         // Load stores from Supabase
@@ -1962,6 +2258,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             showLoadingOverlay();
             
+            // تسجيل Service Worker
+            registerServiceWorker();
+            
+            // التحقق من حالة التثبيت
+            checkInstallStatus();
+            
+            // طلب إذن الإشعارات
+            setTimeout(requestNotificationPermission, 2000);
+            
             // Wait a bit for external scripts to load
             setTimeout(async () => {
                 // Check if Supabase library is available
@@ -2007,7 +2312,7 @@
                 // Enhanced welcome message
                 setTimeout(() => {
                     if (isConnected) {
-                        showNotification('🎉 التحديث الرابع: متصل بقاعدة البيانات!');
+                        showNotification('🎉 كلاشي PWA: متصل بقاعدة البيانات!');
                     } else {
                         showNotification('⚠️ وضع محلي - تحقق من الاتصال بالإنترنت', 'warning');
                     }
@@ -2279,7 +2584,7 @@
         }
 
         function openWhatsApp() {
-            const message = encodeURIComponent('السلام عليكم، أريد الاستفسار عن خدمات كلاشي - التحديث الرابع مع قاعدة البيانات 🚀🔗');
+            const message = encodeURIComponent('السلام عليكم، أريد الاستفسار عن خدمات كلاشي PWA مع قاعدة البيانات 🚀📱');
             window.open(`https://wa.me/9647813798636?text=${message}`, '_blank');
             showNotification('📱 تم فتح واتساب...');
         }
@@ -2384,6 +2689,10 @@
                     case 'r':
                         e.preventDefault();
                         syncData();
+                        break;
+                    case 'i':
+                        e.preventDefault();
+                        if (deferredPrompt) installPWA();
                         break;
                 }
             }
@@ -2553,17 +2862,21 @@
         document.head.appendChild(style);
 
         // Enhanced console logs
-        console.log('🚀 كلاشي - التحديث الرابع مع Supabase جاهز!');
+        console.log('🚀 كلاشي PWA - التطبيق التدريجي مع Supabase جاهز!');
+        console.log('📱 PWA: قابل للتثبيت على جميع الأجهزة');
         console.log('🔗 قاعدة البيانات: Supabase (سيتم اختبار الاتصال...)');
+        console.log('⚡ Service Worker: مسجل للعمل بدون إنترنت');
+        console.log('🔔 الإشعارات: متاحة (سيتم طلب الإذن)');
         console.log('📱 متجرين في صف على جميع الأجهزة');
         console.log('✨ تفاعلات ثلاثية الأبعاد محسنة');
         console.log('🎨 50+ أيقونة و 16 لون للمتاجر');
         console.log('☁️ حفظ سحابي مع تحديثات فورية');
         console.log('⚡ أداء محسن مع debouncing');
         console.log('🔧 نظام إدارة متطور');
-        console.log('⌨️ اختصارات جديدة: Ctrl+R (مزامنة)');
+        console.log('⌨️ اختصارات جديدة: Ctrl+I (تثبيت)');
         console.log('🔔 التحديثات الفورية من قاعدة البيانات');
         console.log('🛠️ إصلاح: تحسين تحميل مكتبة Supabase');
+        console.log('📦 Caching: ملفات محفوظة للعمل بدون إنترنت');
         
         // Setup realtime updates after initialization
         setTimeout(() => {
