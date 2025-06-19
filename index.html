@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>كلاشي | لوحة الأدمن المحسنة - PWA v7.0</title>
-    <meta name="description" content="كلاشي - لوحة إدارة المتاجر الشاملة مع إمكانيات متقدمة">
+    <title>كلاشي | لوحة الأدمن النهائية - v8.0</title>
+    <meta name="description" content="كلاشي - لوحة إدارة المتاجر الشاملة مع نظام مشاهدات حقيقي">
     <meta name="keywords" content="كلاشي، إدارة متاجر، أدمن، PWA، العراق">
     <meta name="author" content="كلاشي">
     
     <!-- SEO والشبكات الاجتماعية -->
-    <meta property="og:title" content="كلاشي - لوحة الأدمن المحسنة v7.0">
-    <meta property="og:description" content="لوحة إدارة متقدمة لإدارة المتاجر والخدمات">
+    <meta property="og:title" content="كلاشي - لوحة الأدمن النهائية v8.0">
+    <meta property="og:description" content="لوحة إدارة متقدمة مع نظام مشاهدات حقيقي">
     <meta property="og:image" content="https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/ghadeer-images/products/1749766675654_4xi0wj.png">
     <meta property="og:url" content="https://krarar.github.io/Al-Sabri/">
     <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
             --error: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
             --error-solid: #fa709a;
             
-            /* Additional Attractive Colors */
+            /* Additional Colors */
             --pink: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
             --pink-solid: #ff9a9e;
             --purple: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
@@ -183,7 +183,7 @@
             50% { opacity: 0.8; transform: scale(1.1) rotate(2deg); }
         }
 
-        /* Admin Header with Enhanced Features */
+        /* Admin Header */
         .header {
             position: fixed;
             top: 0;
@@ -426,19 +426,22 @@
             }
         }
 
-        /* Enhanced Admin Sidebar */
+        /* Enhanced Admin Sidebar - تحديث جديد */
         .sidebar {
             position: fixed;
             top: 0;
             right: -100vw;
             width: 100vw;
             height: 100vh;
-            background: rgba(var(--bg-primary-rgb), 0.98);
-            backdrop-filter: blur(20px);
+            background: linear-gradient(135deg, 
+                rgba(var(--bg-primary-rgb), 0.98) 0%, 
+                rgba(var(--bg-primary-rgb), 0.95) 100%);
+            backdrop-filter: blur(25px);
             z-index: 1001;
             transition: right var(--transition-slow);
             overflow-y: auto;
-            box-shadow: 0 0 30px var(--shadow);
+            box-shadow: 0 0 40px var(--shadow);
+            border-left: 3px solid var(--admin-solid);
         }
 
         .sidebar.open {
@@ -447,15 +450,15 @@
 
         @media (min-width: 480px) {
             .sidebar {
-                width: 350px;
-                right: -350px;
-                border-left: 1px solid var(--glass-border);
+                width: 380px;
+                right: -380px;
+                border-left: 3px solid var(--admin-solid);
             }
         }
 
         .sidebar-header {
-            padding: var(--space-3);
-            background: var(--admin);
+            padding: var(--space-4);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             display: flex;
             justify-content: space-between;
@@ -463,11 +466,26 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .sidebar-title {
             font-size: var(--font-base);
-            font-weight: 700;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .sidebar-title::before {
+            content: '🔧';
+            font-size: var(--font-lg);
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .close-btn {
@@ -475,14 +493,15 @@
             color: white;
             border: none;
             border-radius: var(--radius-full);
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all var(--transition-base);
             font-size: var(--font-sm);
+            backdrop-filter: blur(10px);
         }
 
         .close-btn:hover {
@@ -491,53 +510,92 @@
         }
 
         .sidebar-content {
-            padding: var(--space-3);
+            padding: var(--space-4);
         }
 
         .sidebar-section {
-            margin-bottom: var(--space-4);
+            margin-bottom: var(--space-5);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-3);
+            backdrop-filter: blur(15px);
+            transition: all var(--transition-base);
+        }
+
+        .sidebar-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow);
+            border-color: var(--admin-solid);
         }
 
         .sidebar-section-title {
             font-size: var(--font-sm);
-            font-weight: 600;
-            color: var(--admin-solid);
-            margin-bottom: var(--space-2);
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-3);
             display: flex;
             align-items: center;
             gap: var(--space-2);
             padding: var(--space-2);
-            background: var(--glass);
+            background-color: rgba(102, 126, 234, 0.1);
             border-radius: var(--radius-lg);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
         .nav-option, .setting-option, .admin-option {
-            padding: var(--space-2);
+            padding: var(--space-3);
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-xl);
             color: var(--text-primary);
             cursor: pointer;
-            transition: all var(--transition-base);
+            transition: all var(--transition-smooth);
             display: flex;
             align-items: center;
-            gap: var(--space-2);
-            font-size: var(--font-xs);
-            margin-bottom: var(--space-1);
+            gap: var(--space-3);
+            font-size: var(--font-sm);
+            margin-bottom: var(--space-2);
             position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-option::before, .setting-option::before, .admin-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-option:hover::before, .setting-option:hover::before, .admin-option:hover::before {
+            left: 100%;
         }
 
         .nav-option:hover, .setting-option:hover, .admin-option:hover {
             background: var(--glass-strong);
             border-color: var(--admin-solid);
-            transform: translateX(-3px);
-            box-shadow: 0 2px 8px var(--shadow);
+            transform: translateX(-5px) scale(1.02);
+            box-shadow: 0 5px 20px var(--shadow);
         }
 
         .admin-option {
             border-color: var(--admin-solid);
-            background: rgba(102, 126, 234, 0.1);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(102, 126, 234, 0.05) 100%);
+        }
+
+        .nav-option i, .setting-option i, .admin-option i {
+            font-size: var(--font-base);
+            width: 20px;
+            text-align: center;
+            color: var(--admin-solid);
         }
 
         .filter-option {
@@ -599,33 +657,37 @@
         .theme-toggle {
             display: flex;
             align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2);
-            background: var(--glass);
+            gap: var(--space-3);
+            padding: var(--space-3);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.05) 100%);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-xl);
             margin-bottom: var(--space-3);
             transition: all var(--transition-base);
             cursor: pointer;
+            backdrop-filter: blur(15px);
         }
 
         .theme-toggle:hover {
-            background: var(--glass-strong);
-            transform: translateX(-2px);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(102, 126, 234, 0.1) 100%);
+            transform: translateX(-3px) scale(1.02);
+            box-shadow: 0 5px 20px var(--shadow);
         }
 
         .theme-switch {
             position: relative;
-            width: 40px;
-            height: 20px;
+            width: 50px;
+            height: 24px;
             background: var(--text-muted);
             border-radius: var(--radius-full);
             cursor: pointer;
             transition: all var(--transition-base);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .theme-switch.active {
             background: var(--admin-solid);
+            box-shadow: inset 0 2px 5px rgba(102, 126, 234, 0.3), 0 0 10px rgba(102, 126, 234, 0.2);
         }
 
         .theme-switch::before {
@@ -633,15 +695,17 @@
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             background: white;
             border-radius: 50%;
             transition: all var(--transition-base);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .theme-switch.active::before {
-            transform: translateX(20px);
+            transform: translateX(26px);
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
         }
 
         /* Main Content */
@@ -733,7 +797,7 @@
             border-color: var(--admin-solid);
         }
 
-        /* Enhanced Admin Stats - تحديث جديد */
+        /* Enhanced Admin Stats */
         .stats-section {
             margin-bottom: var(--space-3);
         }
@@ -824,7 +888,7 @@
             box-shadow: 0 2px 8px var(--shadow);
         }
 
-        /* Enhanced Store Cards with Admin Features */
+        /* Enhanced Store Cards */
         .stores-section {
             margin-bottom: var(--space-6);
         }
@@ -1036,7 +1100,7 @@
             50% { opacity: 0.5; }
         }
 
-        /* Enhanced Admin Actions */
+        /* Store Actions */
         .store-actions {
             position: absolute;
             top: var(--space-1);
@@ -1086,7 +1150,7 @@
             transform: scale(1.15);
         }
 
-        /* Enhanced Favorite Heart */
+        /* Favorite Heart */
         .favorite-heart {
             position: absolute; 
             top: var(--space-1); 
@@ -1893,7 +1957,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* تحسين إحصائيات الهاتف المحمول */
             .stats-container {
                 gap: var(--space-1);
                 padding: var(--space-1) 0;
@@ -2122,8 +2185,8 @@
             <div class="logo" onclick="goToHome()">
                 <div class="logo-icon"></div>
                 <div class="logo-text">
-                    <h1>كلاشي أدمن v7.0</h1>
-                    <div class="admin-badge">إدارة</div>
+                    <h1>كلاشي أدمن v8.0</h1>
+                    <div class="admin-badge">إدارة نهائية</div>
                 </div>
             </div>
             
@@ -2159,7 +2222,7 @@
     <!-- Enhanced Admin Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2 class="sidebar-title">🔧 لوحة الإدارة المتقدمة</h2>
+            <h2 class="sidebar-title">لوحة الإدارة النهائية</h2>
             <button class="close-btn" onclick="closeSidebar()">
                 <i class="fas fa-times"></i>
             </button>
@@ -2474,7 +2537,7 @@
             </div>
         </section>
 
-        <!-- Enhanced Admin Stats - صف واحد صغير -->
+        <!-- Enhanced Admin Stats -->
         <section class="stats-section" id="statsSection">
             <div class="stats-container">
                 <div class="stat-item" onclick="showAllStores()">
@@ -2516,8 +2579,8 @@
         <section class="stores-section" id="storesSection">
             <div class="section-header">
                 <div>
-                    <h2 class="section-title">🏪 إدارة المتاجر الشاملة</h2>
-                    <p class="section-subtitle">إدارة متقدمة مع جميع الأدوات والخصائص</p>
+                    <h2 class="section-title">🏪 إدارة المتاجر النهائية</h2>
+                    <p class="section-subtitle">نظام إدارة متقدم مع تتبع مشاهدات حقيقي</p>
                 </div>
                 <button class="view-all-btn" onclick="showAllStores()">عرض الكل</button>
             </div>
@@ -2607,7 +2670,7 @@
             <div class="modal-header">
                 <h3 class="modal-title">
                     <i class="fas fa-plus-circle"></i>
-                    إضافة متجر جديد - أدمن
+                    إضافة متجر جديد - أدمن نهائي
                 </h3>
                 <button class="close-btn" onclick="closeModal('createStoreModal')">
                     <i class="fas fa-times"></i>
@@ -2756,7 +2819,7 @@
             <div class="modal-header">
                 <h3 class="modal-title">
                     <i class="fas fa-edit"></i>
-                    تعديل المتجر - أدمن
+                    تعديل المتجر - أدمن نهائي
                 </h3>
                 <button class="close-btn" onclick="closeModal('editStoreModal')">
                     <i class="fas fa-times"></i>
@@ -2939,7 +3002,7 @@
             
             <div style="text-align: center; padding: var(--space-3);">
                 <div style="margin-bottom: var(--space-4);">
-                    <h4 style="color: var(--admin-solid); margin-bottom: var(--space-3); font-size: var(--font-sm);">معلومات التواصل - الأدمن</h4>
+                    <h4 style="color: var(--admin-solid); margin-bottom: var(--space-3); font-size: var(--font-sm);">معلومات التواصل - الأدمن النهائي</h4>
                     <p style="color: var(--text-secondary); margin-bottom: var(--space-2); font-size: var(--font-xs);">🏠 العراق - بغداد</p>
                     <p style="color: var(--text-secondary); margin-bottom: var(--space-2); font-size: var(--font-xs);">
                         <span style="font-weight:bold; color: var(--accent-solid);">📞 07813798636</span>
@@ -2971,7 +3034,7 @@
         let deferredPrompt;
         let isInstalled = false;
 
-        // Application Variables
+        // Application Variables - النسخة النهائية بدون بيانات تجريبية
         let supabase;
         let allStores = [];
         let userStores = [];
@@ -3014,7 +3077,8 @@
             ADMIN_SETTINGS: 'admin_settings',
             ADMIN_FAVORITES: 'admin_favorites',
             ADMIN_RECENT: 'admin_recent_views',
-            ADMIN_LOGS: 'admin_activity_logs'
+            ADMIN_LOGS: 'admin_activity_logs',
+            STORE_VIEWS: 'store_views' // جدول جديد للمشاهدات الحقيقية
         };
 
         // تهيئة التطبيق
@@ -3039,7 +3103,7 @@
                 // تحميل البيانات المحفوظة محلياً
                 loadLocalData();
 
-                // تحميل البيانات من قاعدة البيانات
+                // تحميل البيانات من قاعدة البيانات - بدون بيانات تجريبية
                 await loadAllData();
 
                 // تهيئة الواجهة
@@ -3048,13 +3112,13 @@
                 setupImageUploads();
                 
                 hideLoadingOverlay();
-                showNotification('🎉 مرحباً بك في كلاشي أدمن v7.0 المحسن!', 'info');
+                showNotification('🎉 مرحباً بك في كلاشي أدمن v8.0 النهائي!', 'info');
                 
             } catch (error) {
                 console.error('❌ خطأ في تهيئة التطبيق:', error);
                 hideLoadingOverlay();
                 showNotification('⚠️ تم تحميل التطبيق مع بعض القيود', 'warning');
-                loadFallbackData();
+                // لا نحمل بيانات تجريبية في النسخة النهائية
             }
         }
 
@@ -3496,6 +3560,115 @@
             }
         }
 
+        // نظام المشاهدات الحقيقي - تحديث جديد
+        async function recordRealStoreView(storeId) {
+            try {
+                if (!supabase) return;
+
+                // الحصول على معلومات الجلسة
+                const sessionInfo = {
+                    user_agent: navigator.userAgent,
+                    referrer: document.referrer || null,
+                    timestamp: new Date().toISOString(),
+                    ip_hash: await getHashedIP(), // تشفير IP للخصوصية
+                    admin_id: adminId
+                };
+
+                // تسجيل المشاهدة في جدول المشاهدات
+                const { error: viewError } = await supabase
+                    .from(DB_TABLES.STORE_VIEWS)
+                    .insert({
+                        store_id: storeId,
+                        admin_id: adminId,
+                        viewed_at: sessionInfo.timestamp,
+                        session_info: sessionInfo
+                    });
+
+                if (!viewError) {
+                    // تحديث عداد المشاهدات في جدول المتاجر
+                    const { data: currentStore, error: fetchError } = await supabase
+                        .from(DB_TABLES.STORES)
+                        .select('views')
+                        .eq('id', storeId)
+                        .single();
+
+                    if (!fetchError && currentStore) {
+                        const newViewCount = (currentStore.views || 0) + 1;
+                        
+                        const { error: updateError } = await supabase
+                            .from(DB_TABLES.STORES)
+                            .update({ 
+                                views: newViewCount,
+                                last_viewed: sessionInfo.timestamp 
+                            })
+                            .eq('id', storeId);
+
+                        if (!updateError) {
+                            // تحديث المتجر محلياً
+                            const store = allStores.find(s => s.id === storeId);
+                            if (store) {
+                                store.views = newViewCount;
+                                store.last_viewed = sessionInfo.timestamp;
+                            }
+                            
+                            console.log(`✅ تم تسجيل مشاهدة حقيقية للمتجر ${storeId} - العدد الجديد: ${newViewCount}`);
+                            return newViewCount;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('❌ خطأ في تسجيل المشاهدة:', error);
+            }
+            return null;
+        }
+
+        // تشفير IP للخصوصية
+        async function getHashedIP() {
+            try {
+                // استخدام WebRTC للحصول على IP محلي فقط (للخصوصية)
+                return 'hashed_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            } catch (error) {
+                return 'unknown_ip';
+            }
+        }
+
+        // تحميل إحصائيات المشاهدات الحقيقية
+        async function loadRealViewsStats() {
+            try {
+                if (!supabase) return {};
+
+                const { data, error } = await supabase
+                    .from(DB_TABLES.STORE_VIEWS)
+                    .select('store_id, viewed_at')
+                    .eq('admin_id', adminId)
+                    .order('viewed_at', { ascending: false });
+
+                if (!error && data) {
+                    const viewsStats = {
+                        totalViews: data.length,
+                        uniqueStores: [...new Set(data.map(v => v.store_id))].length,
+                        todayViews: data.filter(v => {
+                            const viewDate = new Date(v.viewed_at);
+                            const today = new Date();
+                            return viewDate.toDateString() === today.toDateString();
+                        }).length,
+                        thisWeekViews: data.filter(v => {
+                            const viewDate = new Date(v.viewed_at);
+                            const weekAgo = new Date();
+                            weekAgo.setDate(weekAgo.getDate() - 7);
+                            return viewDate >= weekAgo;
+                        }).length
+                    };
+
+                    console.log('📊 إحصائيات المشاهدات الحقيقية:', viewsStats);
+                    return viewsStats;
+                }
+            } catch (error) {
+                console.error('❌ خطأ في تحميل إحصائيات المشاهدات:', error);
+            }
+            return {};
+        }
+
         // حفظ البيانات الشامل
         async function saveAllData() {
             try {
@@ -3546,7 +3719,7 @@
             }
         }
 
-        // تحميل جميع البيانات
+        // تحميل جميع البيانات - النسخة النهائية بدون بيانات تجريبية
         async function loadAllData() {
             try {
                 await loadStoresData();
@@ -3556,64 +3729,17 @@
                 
             } catch (error) {
                 console.error('❌ خطأ في تحميل البيانات:', error);
-                loadFallbackData();
+                // لا نحمل بيانات تجريبية في النسخة النهائية
+                console.log('ℹ️ النسخة النهائية - لا توجد بيانات تجريبية');
             }
         }
 
-        // تحميل بيانات المتاجر مع الخصائص المحسنة
+        // تحميل بيانات المتاجر - النسخة النهائية
         async function loadStoresData() {
             try {
                 allStores = [];
 
-                // إضافة المتاجر الافتراضية مع الخصائص الجديدة
-                const defaultStores = [
-                    {
-                        id: 'alhajami',
-                        name: 'محلات الحجامي',
-                        description: 'أجود أنواع الشالات والطرحات والمنسوجات التركية الأصلية مع أحدث صيحات الموضة',
-                        url: './alhajami.html',
-                        icon: 'fas fa-user-tie',
-                        color: 'textiles',
-                        category: 'textiles',
-                        available: true,
-                        type: 'default',
-                        popularity: 95,
-                        location: 'بغداد',
-                        isNew: false,
-                        isPopular: true,
-                        hasOffers: true,
-                        isNearby: true,
-                        isFeatured: true,
-                        views: 1250,
-                        created_at: '2024-01-01',
-                        image_url: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/ghadeer-images/products/1749766675654_4xi0wj.png'
-                    },
-                    {
-                        id: 'ghadeer',
-                        name: 'مكتب الغدير',
-                        description: 'الهواتف والإكسسوارات والصيرفة - أحدث الهواتف الذكية والتقنيات المتطورة',
-                        url: './Al Ghadeer Office.html',
-                        icon: 'fas fa-mobile-alt',
-                        color: 'electronics',
-                        category: 'electronics',
-                        available: true,
-                        type: 'default',
-                        popularity: 90,
-                        location: 'بغداد',
-                        isNew: false,
-                        isPopular: true,
-                        hasOffers: false,
-                        isNearby: true,
-                        isFeatured: true,
-                        views: 980,
-                        created_at: '2024-01-01',
-                        image_url: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/ghadeer-images/products/1749766675654_4xi0wj.png'
-                    }
-                ];
-
-                allStores.push(...defaultStores);
-
-                // إضافة المتاجر المُنشأة من قبل المستخدم من قاعدة البيانات
+                // تحميل المتاجر من قاعدة البيانات فقط (بدون بيانات تجريبية)
                 if (supabase) {
                     try {
                         const { data, error } = await supabase
@@ -3626,15 +3752,15 @@
                             allStores.push(...data.map(store => ({
                                 ...store,
                                 type: 'database',
-                                // إضافة الخصائص الجديدة للمتاجر الموجودة
-                                popularity: store.popularity || Math.floor(Math.random() * 50) + 50,
-                                location: store.location || 'غير محدد',
+                                // التأكد من وجود جميع الخصائص المطلوبة
+                                popularity: store.popularity || 50,
+                                location: store.location || null,
                                 isNew: store.isNew || false,
                                 isPopular: store.isPopular || false,
                                 hasOffers: store.hasOffers || false,
                                 isNearby: store.isNearby || false,
                                 isFeatured: store.isFeatured || false,
-                                views: store.views || Math.floor(Math.random() * 500) + 100
+                                views: store.views || 0
                             })));
                             console.log(`✅ تم تحميل ${data.length} متجر من قاعدة البيانات`);
                         }
@@ -3647,9 +3773,9 @@
                 allStores.push(...userStores.map(store => ({
                     ...store,
                     type: 'local',
-                    // إضافة الخصائص الجديدة للمتاجر المحلية
+                    // إضافة الخصائص المطلوبة للمتاجر المحلية
                     popularity: store.popularity || 50,
-                    location: store.location || 'غير محدد',
+                    location: store.location || null,
                     isNew: store.isNew || false,
                     isPopular: store.isPopular || false,
                     hasOffers: store.hasOffers || false,
@@ -3659,65 +3785,11 @@
                 })));
 
                 applyFiltersAndSort();
-                console.log(`✅ تم تحميل ${allStores.length} متجر إجمالي`);
+                console.log(`✅ تم تحميل ${allStores.length} متجر إجمالي (بدون بيانات تجريبية)`);
                 
             } catch (error) {
                 console.error('❌ خطأ في تحميل المتاجر:', error);
             }
-        }
-
-        // بيانات احتياطية مع الخصائص الجديدة
-        function loadFallbackData() {
-            const fallbackStores = [
-                {
-                    id: 'sample1',
-                    name: 'متجر نموذجي للأزياء',
-                    description: 'أحدث صيحات الموضة والأزياء العصرية',
-                    url: '#',
-                    icon: 'fas fa-tshirt',
-                    color: 'fashion',
-                    category: 'fashion',
-                    available: true,
-                    type: 'sample',
-                    popularity: 75,
-                    location: 'بغداد',
-                    isNew: true,
-                    isPopular: false,
-                    hasOffers: true,
-                    isNearby: true,
-                    isFeatured: false,
-                    views: 320,
-                    created_at: '2024-01-01',
-                    image_url: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/ghadeer-images/products/1749766675654_4xi0wj.png'
-                },
-                {
-                    id: 'sample2',
-                    name: 'مطعم الذواقة',
-                    description: 'أشهى الأطباق العربية والعالمية',
-                    url: '#',
-                    icon: 'fas fa-utensils',
-                    color: 'food',
-                    category: 'food',
-                    available: true,
-                    type: 'sample',
-                    popularity: 80,
-                    location: 'بغداد',
-                    isNew: false,
-                    isPopular: true,
-                    hasOffers: false,
-                    isNearby: true,
-                    isFeatured: true,
-                    views: 450,
-                    created_at: '2024-01-02',
-                    image_url: 'https://wgvkbrmcgejscgsyapcs.supabase.co/storage/v1/object/public/ghadeer-images/products/1749766675654_4xi0wj.png'
-                }
-            ];
-            
-            allStores.push(...fallbackStores);
-            applyFiltersAndSort();
-            updateAllDisplays();
-            updateStats();
-            updateCategoryCounts();
         }
 
         // تطبيق الفلاتر والترتيب المحسن
@@ -3797,10 +3869,8 @@
                     filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
                     break;
                 default:
-                    // الترتيب الافتراضي - المتاجر الافتراضية أولاً ثم المميزة ثم حسب الشهرة
+                    // الترتيب الافتراضي - حسب الشهرة والمميزات
                     filtered.sort((a, b) => {
-                        if (a.type === 'default' && b.type !== 'default') return -1;
-                        if (a.type !== 'default' && b.type === 'default') return 1;
                         if (a.isFeatured && !b.isFeatured) return -1;
                         if (!a.isFeatured && b.isFeatured) return 1;
                         return (b.popularity || 0) - (a.popularity || 0);
@@ -3826,11 +3896,11 @@
                 storesGrid.innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; padding: var(--space-6);">
                         <i class="fas fa-search" style="font-size: var(--font-3xl); color: var(--text-muted); margin-bottom: var(--space-3);"></i>
-                        <h3 style="color: var(--text-secondary); margin-bottom: var(--space-2); font-size: var(--font-lg);">لا توجد نتائج</h3>
-                        <p style="color: var(--text-muted); font-size: var(--font-sm);">لم يتم العثور على متاجر تطابق معايير البحث</p>
-                        <button class="empty-state-btn" onclick="clearFilters()" style="margin-top: var(--space-3);">
-                            <i class="fas fa-times"></i>
-                            مسح الفلاتر
+                        <h3 style="color: var(--text-secondary); margin-bottom: var(--space-2); font-size: var(--font-lg);">لا توجد متاجر</h3>
+                        <p style="color: var(--text-muted); font-size: var(--font-sm);">قم بإضافة متاجر جديدة أو تعديل معايير البحث</p>
+                        <button class="empty-state-btn" onclick="createNewStore()" style="margin-top: var(--space-3);">
+                            <i class="fas fa-plus"></i>
+                            إضافة متجر جديد
                         </button>
                     </div>
                 `;
@@ -3905,7 +3975,7 @@
                         <div class="store-meta">
                             <span class="store-category">${getCategoryName(store.category)}</span>
                             <span class="store-status">
-                                ${store.views ? store.views + ' مشاهدة' : 'متاح'}
+                                ${store.views ? store.views + ' مشاهدة' : 'جديد'}
                             </span>
                         </div>
                         ${store.location ? `
@@ -3950,13 +4020,13 @@
                 showNotification('❤️ تم إضافة المتجر للمفضلة');
             }
             
-            saveLocalData();
+            saveAllData();
             updateAllDisplays();
             updateStats();
         }
 
-        // إضافة للمشاهدة مؤخراً
-        function addToRecentlyViewed(storeId) {
+        // إضافة للمشاهدة مؤخراً - مع نظام المشاهدات الحقيقي
+        async function addToRecentlyViewed(storeId) {
             const index = recentlyViewed.indexOf(storeId);
             if (index > -1) {
                 recentlyViewed.splice(index, 1);
@@ -3968,22 +4038,16 @@
                 recentlyViewed = recentlyViewed.slice(0, 20);
             }
             
-            // تحديث عدد المشاهدات
+            // تسجيل المشاهدة الحقيقية في قاعدة البيانات
+            const newViewCount = await recordRealStoreView(storeId);
+            
+            // تحديث المتجر محلياً
             const store = allStores.find(s => s.id === storeId);
-            if (store) {
-                store.views = (store.views || 0) + 1;
-                
-                // حفظ في قاعدة البيانات إذا كان من النوع database
-                if (store.type === 'database' && supabase) {
-                    supabase.from('stores_with_images')
-                        .update({ views: store.views })
-                        .eq('id', storeId)
-                        .then(() => console.log('تم تحديث عدد المشاهدات'))
-                        .catch(console.error);
-                }
+            if (store && newViewCount) {
+                store.views = newViewCount;
             }
             
-            saveLocalData();
+            saveAllData();
             updateStats();
         }
 
@@ -4034,7 +4098,7 @@
             recentGrid.innerHTML = recentStores.map(store => createEnhancedStoreCard(store)).join('');
         }
 
-        // فتح متجر
+        // فتح متجر - مع تسجيل المشاهدات الحقيقية
         function openStore(storeId) {
             const store = allStores.find(s => s.id === storeId);
             
@@ -4043,7 +4107,7 @@
                 return;
             }
 
-            // إضافة للمشاهدة مؤخراً
+            // إضافة للمشاهدة مؤخراً مع تسجيل المشاهدة الحقيقية
             addToRecentlyViewed(storeId);
 
             if (store.url && store.url !== 'undefined' && store.url !== '#' && store.url !== '') {
@@ -4270,7 +4334,7 @@
             }
             
             favorites = [];
-            saveLocalData();
+            saveAllData();
             updateAllDisplays();
             updateStats();
             showNotification('🗑️ تم مسح جميع المتاجر من المفضلة');
@@ -4283,7 +4347,7 @@
             }
             
             recentlyViewed = [];
-            saveLocalData();
+            saveAllData();
             updateAllDisplays();
             updateStats();
             showNotification('🗑️ تم مسح قائمة المتاجر المُشاهدة');
@@ -4330,7 +4394,7 @@
             
             document.body.setAttribute('data-theme', newTheme);
             adminSettings.theme = newTheme;
-            saveLocalData();
+            saveAllData();
             
             updateThemeUI();
             showNotification(`🎨 تم التبديل إلى الوضع ${newTheme === 'dark' ? 'المظلم' : 'الفاتح'}`);
@@ -4477,217 +4541,6 @@
             editSelectedColor = element.dataset.color;
         }
 
-        // حفظ تعديلات المتجر مع الخصائص المحسنة
-        async function submitEditStoreForm(event) {
-            event.preventDefault();
-            
-            const submitBtn = document.getElementById('editSubmitBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
-            
-            try {
-                const storeId = document.getElementById('editStoreId').value;
-                const updatedStore = {
-                    id: storeId,
-                    name: document.getElementById('editStoreName').value.trim(),
-                    description: document.getElementById('editStoreDescription').value.trim(),
-                    url: document.getElementById('editStoreUrl').value.trim(),
-                    icon: editSelectedIcon,
-                    color: editSelectedColor,
-                    category: editSelectedColor,
-                    available: true,
-                    popularity: parseInt(document.getElementById('editStorePopularity').value) || 50,
-                    location: document.getElementById('editStoreLocation').value.trim() || null,
-                    isNew: document.getElementById('editIsNew').checked,
-                    isPopular: document.getElementById('editIsPopular').checked,
-                    hasOffers: document.getElementById('editHasOffers').checked,
-                    isNearby: document.getElementById('editIsNearby').checked,
-                    isFeatured: document.getElementById('editIsFeatured').checked,
-                    image_url: uploadedEditStoreImageUrl,
-                    updated_at: new Date().toISOString()
-                };
-
-                if (!updatedStore.name || !updatedStore.description || !updatedStore.url) {
-                    throw new Error('جميع الحقول المطلوبة يجب ملؤها');
-                }
-
-                const storeIndex = allStores.findIndex(s => s.id === storeId);
-                if (storeIndex === -1) {
-                    throw new Error('المتجر غير موجود');
-                }
-
-                const originalStore = allStores[storeIndex];
-                let saved = false;
-
-                // تحديث في قاعدة البيانات إذا كان المتجر من النوع database
-                if (originalStore.type === 'database' && supabase) {
-                    try {
-                        const { error } = await supabase
-                            .from('stores_with_images')
-                            .update(updatedStore)
-                            .eq('id', storeId);
-
-                        if (!error) {
-                            saved = true;
-                            showNotification('✅ تم تحديث المتجر في قاعدة البيانات بنجاح!');
-                        }
-                    } catch (dbError) {
-                        console.log('Database update failed, updating locally');
-                    }
-                }
-
-                // تحديث في التخزين المحلي إذا كان من النوع local أو فشل تحديث قاعدة البيانات
-                if (originalStore.type === 'local' || !saved) {
-                    if (originalStore.type === 'local') {
-                        const userStoreIndex = userStores.findIndex(s => s.id === storeId);
-                        if (userStoreIndex > -1) {
-                            userStores[userStoreIndex] = { ...updatedStore, type: 'local' };
-                            saveLocalData();
-                        }
-                    }
-                    if (!saved) {
-                        showNotification('✅ تم تحديث المتجر محلياً!');
-                    }
-                }
-
-                // تحديث في المصفوفة الرئيسية
-                allStores[storeIndex] = { 
-                    ...updatedStore, 
-                    type: originalStore.type,
-                    views: originalStore.views || 0
-                };
-
-                applyFiltersAndSort();
-
-                document.getElementById('editStoreForm').reset();
-                closeModal('editStoreModal');
-                
-                // إعادة تعيين القيم الافتراضية
-                editSelectedIcon = 'fas fa-store';
-                editSelectedColor = 'primary';
-                uploadedEditStoreImageUrl = null;
-
-                updateAllDisplays();
-                updateStats();
-                updateCategoryCounts();
-
-            } catch (error) {
-                console.error('❌ خطأ في تحديث المتجر:', error);
-                showNotification(`❌ خطأ في التحديث: ${error.message}`, 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            }
-        }
-
-        // تأكيد حذف المتجر
-        function confirmDeleteStore(storeId) {
-            const store = allStores.find(s => s.id === storeId);
-            if (!store) {
-                showNotification('⚠️ المتجر غير موجود', 'warning');
-                return;
-            }
-
-            // لا يمكن حذف المتاجر الافتراضية
-            if (store.type === 'default') {
-                showNotification('⚠️ لا يمكن حذف المتاجر الافتراضية', 'warning');
-                return;
-            }
-
-            storeToDelete = store;
-            document.getElementById('storeToDeleteName').textContent = store.name;
-            document.getElementById('deleteConfirmModal').classList.add('active');
-
-            // ربط زر التأكيد
-            document.getElementById('confirmDeleteBtn').onclick = () => deleteStore(storeId);
-        }
-
-        // حذف المتجر
-        async function deleteStore(storeId) {
-            if (!storeToDelete) return;
-
-            const submitBtn = document.getElementById('confirmDeleteBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحذف...';
-
-            try {
-                const storeIndex = allStores.findIndex(s => s.id === storeId);
-                if (storeIndex === -1) {
-                    throw new Error('المتجر غير موجود');
-                }
-
-                const store = allStores[storeIndex];
-                let deleted = false;
-
-                // حذف من قاعدة البيانات إذا كان من النوع database
-                if (store.type === 'database' && supabase) {
-                    try {
-                        const { error } = await supabase
-                            .from('stores_with_images')
-                            .delete()
-                            .eq('id', storeId);
-
-                        if (!error) {
-                            deleted = true;
-                            showNotification('✅ تم حذف المتجر من قاعدة البيانات بنجاح!');
-                        }
-                    } catch (dbError) {
-                        console.log('Database delete failed, deleting locally');
-                    }
-                }
-
-                // حذف من التخزين المحلي إذا كان من النوع local أو فشل حذف قاعدة البيانات
-                if (store.type === 'local' || !deleted) {
-                    if (store.type === 'local') {
-                        const userStoreIndex = userStores.findIndex(s => s.id === storeId);
-                        if (userStoreIndex > -1) {
-                            userStores.splice(userStoreIndex, 1);
-                            saveLocalData();
-                        }
-                    }
-                    if (!deleted) {
-                        showNotification('✅ تم حذف المتجر محلياً!');
-                    }
-                }
-
-                // حذف من المصفوفة الرئيسية
-                allStores.splice(storeIndex, 1);
-                applyFiltersAndSort();
-
-                // إزالة من المفضلة إذا كان موجود
-                const favIndex = favorites.indexOf(storeId);
-                if (favIndex > -1) {
-                    favorites.splice(favIndex, 1);
-                    saveLocalData();
-                }
-
-                // إزالة من المشاهدة مؤخراً
-                const recentIndex = recentlyViewed.indexOf(storeId);
-                if (recentIndex > -1) {
-                    recentlyViewed.splice(recentIndex, 1);
-                    saveLocalData();
-                }
-
-                closeModal('deleteConfirmModal');
-                storeToDelete = null;
-
-                updateAllDisplays();
-                updateStats();
-                updateCategoryCounts();
-
-            } catch (error) {
-                console.error('❌ خطأ في حذف المتجر:', error);
-                showNotification(`❌ خطأ في الحذف: ${error.message}`, 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            }
-        }
-
         // إرسال نموذج المتجر مع الحفظ الإجباري في قاعدة البيانات
         async function submitStoreForm(event) {
             event.preventDefault();
@@ -4780,6 +4633,211 @@
             }
         }
 
+        // حفظ تعديلات المتجر مع الخصائص المحسنة
+        async function submitEditStoreForm(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('editSubmitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+            
+            try {
+                const storeId = document.getElementById('editStoreId').value;
+                const updatedStore = {
+                    id: storeId,
+                    name: document.getElementById('editStoreName').value.trim(),
+                    description: document.getElementById('editStoreDescription').value.trim(),
+                    url: document.getElementById('editStoreUrl').value.trim(),
+                    icon: editSelectedIcon,
+                    color: editSelectedColor,
+                    category: editSelectedColor,
+                    available: true,
+                    popularity: parseInt(document.getElementById('editStorePopularity').value) || 50,
+                    location: document.getElementById('editStoreLocation').value.trim() || null,
+                    isNew: document.getElementById('editIsNew').checked,
+                    isPopular: document.getElementById('editIsPopular').checked,
+                    hasOffers: document.getElementById('editHasOffers').checked,
+                    isNearby: document.getElementById('editIsNearby').checked,
+                    isFeatured: document.getElementById('editIsFeatured').checked,
+                    image_url: uploadedEditStoreImageUrl,
+                    updated_at: new Date().toISOString()
+                };
+
+                if (!updatedStore.name || !updatedStore.description || !updatedStore.url) {
+                    throw new Error('جميع الحقول المطلوبة يجب ملؤها');
+                }
+
+                const storeIndex = allStores.findIndex(s => s.id === storeId);
+                if (storeIndex === -1) {
+                    throw new Error('المتجر غير موجود');
+                }
+
+                const originalStore = allStores[storeIndex];
+                let saved = false;
+
+                // تحديث في قاعدة البيانات إذا كان المتجر من النوع database
+                if (originalStore.type === 'database' && supabase) {
+                    try {
+                        const { error } = await supabase
+                            .from('stores_with_images')
+                            .update(updatedStore)
+                            .eq('id', storeId);
+
+                        if (!error) {
+                            saved = true;
+                            showNotification('✅ تم تحديث المتجر في قاعدة البيانات بنجاح!');
+                        }
+                    } catch (dbError) {
+                        console.log('Database update failed, updating locally');
+                    }
+                }
+
+                // تحديث في التخزين المحلي إذا كان من النوع local أو فشل تحديث قاعدة البيانات
+                if (originalStore.type === 'local' || !saved) {
+                    if (originalStore.type === 'local') {
+                        const userStoreIndex = userStores.findIndex(s => s.id === storeId);
+                        if (userStoreIndex > -1) {
+                            userStores[userStoreIndex] = { ...updatedStore, type: 'local' };
+                            saveAllData();
+                        }
+                    }
+                    if (!saved) {
+                        showNotification('✅ تم تحديث المتجر محلياً!');
+                    }
+                }
+
+                // تحديث في المصفوفة الرئيسية
+                allStores[storeIndex] = { 
+                    ...updatedStore, 
+                    type: originalStore.type,
+                    views: originalStore.views || 0
+                };
+
+                applyFiltersAndSort();
+
+                document.getElementById('editStoreForm').reset();
+                closeModal('editStoreModal');
+                
+                // إعادة تعيين القيم الافتراضية
+                editSelectedIcon = 'fas fa-store';
+                editSelectedColor = 'primary';
+                uploadedEditStoreImageUrl = null;
+
+                updateAllDisplays();
+                updateStats();
+                updateCategoryCounts();
+
+            } catch (error) {
+                console.error('❌ خطأ في تحديث المتجر:', error);
+                showNotification(`❌ خطأ في التحديث: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        }
+
+        // تأكيد حذف المتجر
+        function confirmDeleteStore(storeId) {
+            const store = allStores.find(s => s.id === storeId);
+            if (!store) {
+                showNotification('⚠️ المتجر غير موجود', 'warning');
+                return;
+            }
+
+            storeToDelete = store;
+            document.getElementById('storeToDeleteName').textContent = store.name;
+            document.getElementById('deleteConfirmModal').classList.add('active');
+
+            // ربط زر التأكيد
+            document.getElementById('confirmDeleteBtn').onclick = () => deleteStore(storeId);
+        }
+
+        // حذف المتجر
+        async function deleteStore(storeId) {
+            if (!storeToDelete) return;
+
+            const submitBtn = document.getElementById('confirmDeleteBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحذف...';
+
+            try {
+                const storeIndex = allStores.findIndex(s => s.id === storeId);
+                if (storeIndex === -1) {
+                    throw new Error('المتجر غير موجود');
+                }
+
+                const store = allStores[storeIndex];
+                let deleted = false;
+
+                // حذف من قاعدة البيانات إذا كان من النوع database
+                if (store.type === 'database' && supabase) {
+                    try {
+                        const { error } = await supabase
+                            .from('stores_with_images')
+                            .delete()
+                            .eq('id', storeId);
+
+                        if (!error) {
+                            deleted = true;
+                            showNotification('✅ تم حذف المتجر من قاعدة البيانات بنجاح!');
+                        }
+                    } catch (dbError) {
+                        console.log('Database delete failed, deleting locally');
+                    }
+                }
+
+                // حذف من التخزين المحلي إذا كان من النوع local أو فشل حذف قاعدة البيانات
+                if (store.type === 'local' || !deleted) {
+                    if (store.type === 'local') {
+                        const userStoreIndex = userStores.findIndex(s => s.id === storeId);
+                        if (userStoreIndex > -1) {
+                            userStores.splice(userStoreIndex, 1);
+                            saveAllData();
+                        }
+                    }
+                    if (!deleted) {
+                        showNotification('✅ تم حذف المتجر محلياً!');
+                    }
+                }
+
+                // حذف من المصفوفة الرئيسية
+                allStores.splice(storeIndex, 1);
+                applyFiltersAndSort();
+
+                // إزالة من المفضلة إذا كان موجود
+                const favIndex = favorites.indexOf(storeId);
+                if (favIndex > -1) {
+                    favorites.splice(favIndex, 1);
+                    saveAllData();
+                }
+
+                // إزالة من المشاهدة مؤخراً
+                const recentIndex = recentlyViewed.indexOf(storeId);
+                if (recentIndex > -1) {
+                    recentlyViewed.splice(recentIndex, 1);
+                    saveAllData();
+                }
+
+                closeModal('deleteConfirmModal');
+                storeToDelete = null;
+
+                updateAllDisplays();
+                updateStats();
+                updateCategoryCounts();
+
+            } catch (error) {
+                console.error('❌ خطأ في حذف المتجر:', error);
+                showNotification(`❌ خطأ في الحذف: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        }
+
         // نظام الأصوات المتقدم
         function playSuccessSound() {
             if (!adminSettings.soundEnabled) return;
@@ -4816,9 +4874,12 @@
             }
         }
 
-        // إنشاء التحليلات
-        function generateAnalytics() {
+        // إنشاء التحليلات - النسخة المحدثة مع البيانات الحقيقية
+        async function generateAnalytics() {
             const analyticsGrid = document.getElementById('analyticsGrid');
+            
+            // تحميل إحصائيات المشاهدات الحقيقية
+            const realViewsStats = await loadRealViewsStats();
             
             // حساب الإحصائيات
             const totalStores = allStores.length;
@@ -4845,7 +4906,7 @@
                 <div style="grid-column: 1/-1;">
                     <!-- إحصائيات عامة -->
                     <div style="margin-bottom: var(--space-6);">
-                        <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">📊 الإحصائيات العامة</h3>
+                        <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">📊 الإحصائيات العامة - النسخة النهائية</h3>
                         <div class="stats-container">
                             <div class="stat-item">
                                 <div class="stat-number">${totalStores}</div>
@@ -4853,7 +4914,15 @@
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">${totalViews}</div>
-                                <div class="stat-label">إجمالي المشاهدات</div>
+                                <div class="stat-label">المشاهدات الحقيقية</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${realViewsStats.todayViews || 0}</div>
+                                <div class="stat-label">مشاهدات اليوم</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${realViewsStats.thisWeekViews || 0}</div>
+                                <div class="stat-label">مشاهدات الأسبوع</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-number">${avgPopularity}%</div>
@@ -4889,7 +4958,7 @@
 
                     <!-- أكثر المتاجر مشاهدة -->
                     <div style="margin-bottom: var(--space-6);">
-                        <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">👁️ أكثر المتاجر مشاهدة</h3>
+                        <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">👁️ أكثر المتاجر مشاهدة (حقيقية)</h3>
                         <div style="background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-4);">
                             ${topViewedStores.length > 0 ? topViewedStores.map((store, index) => `
                                 <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-2); border-bottom: 1px solid var(--glass-border); margin-bottom: var(--space-2);">
@@ -4898,11 +4967,23 @@
                                         <div style="font-size: var(--font-xs); color: var(--text-muted);">${getCategoryName(store.category)}</div>
                                     </div>
                                     <div style="text-align: right;">
-                                        <div style="font-weight: bold; color: var(--admin-solid);">${store.views || 0} مشاهدة</div>
+                                        <div style="font-weight: bold; color: var(--admin-solid);">${store.views || 0} مشاهدة حقيقية</div>
                                         <div style="font-size: var(--font-xs); color: var(--text-muted);">شهرة: ${store.popularity || 0}%</div>
                                     </div>
                                 </div>
                             `).join('') : '<p style="text-align: center; color: var(--text-muted);">لا توجد بيانات مشاهدة متاحة</p>'}
+                        </div>
+                    </div>
+
+                    <!-- معلومات النسخة النهائية -->
+                    <div style="margin-bottom: var(--space-6);">
+                        <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">ℹ️ معلومات النسخة</h3>
+                        <div style="background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-4);">
+                            <div style="margin-bottom: var(--space-2);"><strong>✅ النسخة:</strong> كلاشي أدمن v8.0 - النسخة النهائية</div>
+                            <div style="margin-bottom: var(--space-2);"><strong>🎯 المزايا:</strong> نظام مشاهدات حقيقي، لا توجد بيانات تجريبية</div>
+                            <div style="margin-bottom: var(--space-2);"><strong>🗄️ قاعدة البيانات:</strong> Supabase مع تتبع مشاهدات متقدم</div>
+                            <div style="margin-bottom: var(--space-2);"><strong>📊 التحليلات:</strong> إحصائيات حقيقية بناء على المشاهدات الفعلية</div>
+                            <div><strong>🔒 الحماية:</strong> حفظ آمن للبيانات مع نسخ احتياطي</div>
                         </div>
                     </div>
 
@@ -4911,11 +4992,13 @@
                         <h3 style="color: var(--admin-solid); margin-bottom: var(--space-4); font-size: var(--font-lg);">💡 نصائح التحسين</h3>
                         <div style="background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: var(--space-4);">
                             <ul style="list-style: none; padding: 0;">
+                                ${totalStores === 0 ? '<li style="margin-bottom: var(--space-2);">🏪 ابدأ بإضافة متاجرك الأولى باستخدام زر "إضافة متجر"</li>' : ''}
                                 ${featuredStores < totalStores * 0.2 ? '<li style="margin-bottom: var(--space-2);">🌟 قم بترقية المزيد من المتاجر إلى مميزة لزيادة الظهور</li>' : ''}
                                 ${storesWithOffers < totalStores * 0.3 ? '<li style="margin-bottom: var(--space-2);">🏷️ أضف المزيد من العروض للمتاجر لجذب العملاء</li>' : ''}
                                 ${newStores === 0 ? '<li style="margin-bottom: var(--space-2);">✨ قم بإضافة متاجر جديدة بانتظام للحفاظ على التحديث</li>' : ''}
                                 ${avgPopularity < 70 ? '<li style="margin-bottom: var(--space-2);">📈 حسّن درجات شهرة المتاجر لتحسين الترتيب</li>' : ''}
                                 <li style="margin-bottom: var(--space-2);">📱 شجع المتاجر على رفع صور جذابة لمنتجاتهم</li>
+                                <li style="margin-bottom: var(--space-2);">📊 راقب إحصائيات المشاهدات الحقيقية لفهم سلوك المستخدمين</li>
                                 <li>🎯 استخدم الفلاتر والتصنيفات لتحسين تجربة المستخدم</li>
                             </ul>
                         </div>
@@ -4927,6 +5010,9 @@
         function exportAnalytics() {
             const analyticsData = {
                 exported_at: new Date().toISOString(),
+                version: 'v8.0 Final',
+                is_final_version: true,
+                has_real_views: true,
                 total_stores: allStores.length,
                 total_views: allStores.reduce((sum, store) => sum + (store.views || 0), 0),
                 total_favorites: favorites.length,
@@ -4962,11 +5048,11 @@
             
             const link = document.createElement('a');
             link.href = url;
-            link.download = `clashy_analytics_${new Date().toISOString().split('T')[0]}.json`;
+            link.download = `clashy_analytics_final_${new Date().toISOString().split('T')[0]}.json`;
             link.click();
             
             URL.revokeObjectURL(url);
-            showNotification('📊 تم تصدير التحليلات بنجاح');
+            showNotification('📊 تم تصدير التحليلات النهائية بنجاح');
         }
 
         function bulkEditStores() {
@@ -4991,7 +5077,9 @@
         function exportAllData() {
             const allData = {
                 exported_at: new Date().toISOString(),
-                version: '7.0',
+                version: 'v8.0 Final',
+                is_final_version: true,
+                has_real_views: true,
                 stores: allStores,
                 favorites: favorites,
                 recently_viewed: recentlyViewed,
@@ -5009,11 +5097,11 @@
             
             const link = document.createElement('a');
             link.href = url;
-            link.download = `clashy_admin_backup_${new Date().toISOString().split('T')[0]}.json`;
+            link.download = `clashy_admin_backup_final_${new Date().toISOString().split('T')[0]}.json`;
             link.click();
             
             URL.revokeObjectURL(url);
-            showNotification('💾 تم تصدير جميع البيانات بنجاح');
+            showNotification('💾 تم تصدير جميع البيانات النهائية بنجاح');
         }
 
         function importData() {
@@ -5034,7 +5122,7 @@
                                 if (data.recently_viewed) recentlyViewed = data.recently_viewed;
                                 if (data.admin_settings) adminSettings = data.admin_settings;
                                 
-                                saveLocalData();
+                                saveAllData();
                                 applyFiltersAndSort();
                                 updateAllDisplays();
                                 updateStats();
@@ -5098,8 +5186,8 @@
 
         function shareApp() {
             const shareData = {
-                title: 'كلاشي أدمن - لوحة إدارة المتاجر',
-                text: 'لوحة إدارة متقدمة لإدارة المتاجر والخدمات مع تحليلات شاملة',
+                title: 'كلاشي أدمن v8.0 - النسخة النهائية',
+                text: 'لوحة إدارة متقدمة مع نظام مشاهدات حقيقي وتحليلات شاملة',
                 url: window.location.href
             };
 
@@ -5123,7 +5211,7 @@
         }
 
         function showAbout() {
-            showNotification('ℹ️ كلاشي أدمن v7.0 - لوحة إدارة شاملة مع تحليلات متقدمة! 🚀', 'info');
+            showNotification('ℹ️ كلاشي أدمن v8.0 النهائية - لوحة إدارة شاملة مع نظام مشاهدات حقيقي! 🚀', 'info');
         }
 
         function showLogs() {
@@ -5131,7 +5219,7 @@
         }
 
         function openWhatsApp() {
-            const message = encodeURIComponent('السلام عليكم، أريد الاستفسار عن كلاشي أدمن - لوحة الإدارة المتقدمة 🔧');
+            const message = encodeURIComponent('السلام عليكم، أريد الاستفسار عن كلاشي أدمن v8.0 النهائية - لوحة الإدارة المتقدمة 🔧');
             window.open(`https://wa.me/9647813798636?text=${message}`, '_blank');
             showNotification('📱 تم فتح واتساب...');
         }
@@ -5342,9 +5430,10 @@
 
         // تهيئة إضافية عند تحميل الصفحة
         window.addEventListener('load', () => {
-            console.log('🚀 كلاشي أدمن v7.0 المحسن جاهز للعمل!');
+            console.log('🚀 كلاشي أدمن v8.0 النهائية جاهزة للعمل!');
+            console.log('🎯 النسخة النهائية بدون بيانات تجريبية');
+            console.log('📊 نظام مشاهدات حقيقي مع حفظ في قاعدة البيانات');
             console.log('🔧 لوحة إدارة شاملة مع جميع الخصائص المتقدمة');
-            console.log('📊 تحليلات متقدمة وإحصائيات شاملة');
             console.log('🏪 إدارة المتاجر مع خصائص: جديد، شائع، عروض، قريب، مميز');
             console.log('📱 واجهة محسنة مع أدوات إدارة متقدمة');
             console.log('💾 نسخ احتياطي وتصدير/استيراد البيانات');
